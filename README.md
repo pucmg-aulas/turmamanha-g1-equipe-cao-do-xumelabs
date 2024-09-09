@@ -8,7 +8,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 * Pedro Rodrigues Duarte
 * Lucas Ferreira
 * Pedro Henrique Maia
-* Paulo Henrique
+* Paulo Henrique Fonseca de Assis
 * Tiago Boaventura Amaral
 
 ## Professor responsável 
