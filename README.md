@@ -13,5 +13,5 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 ## Professor responsável 
 
-* Nome completo do professor 1
+* Danilo Boechat Seufitelli
 
