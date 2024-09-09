@@ -6,7 +6,7 @@ Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
 
 * Diogo Caribé Brunoro
 * Pedro Rodrigues Duarte
-* Lucas Ferreira
+* Lucas Ferreira Ribeiro
 * Pedro Henrique Maia
 * Paulo Henrique Fonseca de Assis
 * Tiago Boaventura Amaral
