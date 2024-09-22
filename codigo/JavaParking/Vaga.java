@@ -13,6 +13,10 @@ public boolean getStatus() {
 	return this.status;
 }
 
+public String getNumeroVaga() {
+	return this.numeroVaga;
+}
+
 public void setStatus(boolean status) {
 	this.status = status;
 }
