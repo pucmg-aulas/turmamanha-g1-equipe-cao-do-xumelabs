@@ -4,6 +4,7 @@ public class Estacionamento {
 private Vaga vaga[];
 private int numeroDeVagas;
 private UsoDeVaga usoDeVaga;
+private Cliente cliente[];
 private double valorCobranca;
 
 private void calcularCobranca() {
