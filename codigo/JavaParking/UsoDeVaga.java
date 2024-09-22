@@ -3,19 +3,44 @@ package JavaParking;
 public class UsoDeVaga {
 private Veiculo veiculo;
 private Vaga vaga;
-private byte horaChegada;
-private byte minutoChegada;
-private byte horaSaida;
-private byte minutoSaida;
+private int horaChegada;
+private int minutoChegada;
+private int horaSaida;
+private int minutoSaida;
 private int tempoUsado;
 
-public UsoDeVaga(Veiculo veiculo, Vaga vaga, byte horaChegada, byte minutoChegada, byte horaSaida, byte minutoSaida) {
+public UsoDeVaga(Veiculo veiculo, Vaga vaga, int horaChegada, int minutoChegada, int horaSaida, int minutoSaida) {
 	this.veiculo = veiculo;
 	this.vaga = vaga;
 	this.horaChegada = horaChegada;
 	this.minutoChegada = minutoChegada;
 	this.horaSaida = horaSaida;
 	this.minutoSaida = minutoSaida;
+	validarHorario();
+}
+
+private void validarHorario() {
+	if(this.horaChegada >= 24 || this.horaChegada < 0) {
+		this.horaChegada = 0;
+	}
+	if(this.horaSaida >= 24 || this.horaSaida < 0) {
+		this.horaSaida = 0;
+	}
+	if(this.minutoChegada >= 60 || this.minutoChegada < 0) {
+		this.minutoChegada = 0;
+	}
+	if(this.minutoSaida >= 60 || this.minutoSaida < 0) {
+		this.minutoSaida = 0;
+	}
+}
+
+
+public Veiculo getVeiculo() {
+	return this.veiculo;
+}
+
+public Vaga getVaga() {
+	return this.vaga;
 }
 
 public boolean ocuparVaga(){
