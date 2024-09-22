@@ -15,12 +15,14 @@ static {
 public Cliente(String nome) {
 	this.nome = nome;
 	this.identificador = proximoid;
+	proximoid++;
 	this.veiculo = new Veiculo[numeroDeVeiculos];
 }
 
 public Cliente() {
 	this.nome = "Anonimo";
 	this.identificador = proximoid;
+	proximoid++;
 	this.veiculo = new Veiculo[numeroDeVeiculos];
 }
 
