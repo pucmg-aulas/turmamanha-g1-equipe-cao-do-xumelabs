@@ -4,7 +4,6 @@ public class Estacionamento {
 private Vaga vaga[];
 private int numeroDeVagas;
 private UsoDeVaga usoDeVaga;
-private double valorCobranca;
 private static int vagasCadastradas;
 
 static {
@@ -17,11 +16,13 @@ public Estacionamento(int numeroDeVagas) {
 }
 
 private double calcularCobranca() {
-	this.valorCobranca = (this.usoDeVaga.getTempo()/15) * 4;
-	if(this.valorCobranca >= 50) {
-		this.valorCobranca = 50.0;
+	double valorCobranca;
+	
+	valorCobranca = (this.usoDeVaga.getTempo()/15) * 4;
+	if(valorCobranca >= 50) {
+		valorCobranca = 50.0;
 	}
-	return this.valorCobranca;
+	return valorCobranca;
 }
 
 public double getValorCobranca() {
