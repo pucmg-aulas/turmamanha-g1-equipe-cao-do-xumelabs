@@ -10,4 +10,6 @@
 
 #03
 
-![Diagrama2](https://github.com/user-attachments/assets/86890f2b-fd28-4c11-b801-7094c0028038)
+![DiagramaParking](https://github.com/user-attachments/assets/9e997205-88f3-47ad-a213-625cbb42b558)
+
+
