@@ -27,9 +27,9 @@ public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 }
 
 public boolean ocuparVaga(){
-	if(!this.vaga.getStatus()) {
+	if(this.vaga.getStatus() == false) {
 		this.vaga.setStatus(true);
-		this.horaChegada = LocalDateTime.of(2024, 9, 26, 16, 13);
+		this.horaChegada = LocalDateTime.now();
 		return true;
 	}else {
 		return false;
@@ -39,19 +39,19 @@ public boolean ocuparVaga(){
 public boolean desocuparVaga() {
 	if(this.vaga.getStatus()) {
 		this.vaga.setStatus(false);
-		this.horaSaida = LocalDateTime.of(2024, 9, 26, 17, 59);
+		this.horaSaida = LocalDateTime.of(2024, 9, 26, 20, 52);
 		return true;
 	}else {
 		return false;
 	}
 }
 
-private long calcularTempoUsado() {
+private double calcularTempoUsado() {
 	
 	if(this.horaChegada.getHour() == this.horaSaida.getHour()) {
 		this.tempoUsado = Duration.ofMinutes(this.horaSaida.getMinute() - this.horaChegada.getMinute());
 	}else {
-		this.tempoUsado =  Duration.between(this.horaSaida, this.horaChegada);
+		this.tempoUsado =  Duration.between(this.horaChegada, this.horaSaida);
 	}
 	
 	return this.tempoUsado.toMinutes();
