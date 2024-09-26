@@ -12,6 +12,7 @@ public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
 	this.vagas = new ArrayList<>();
 }
+
 public void cadastrarVaga(Vaga vaga) {
 	this.vagas.add(vaga);
 }

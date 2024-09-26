@@ -29,7 +29,7 @@ public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 public boolean ocuparVaga(){
 	if(this.vaga.getStatus() == false) {
 		this.vaga.setStatus(true);
-		this.horaChegada = LocalDateTime.now();
+		this.horaChegada = LocalDateTime.of(2024, 9, 26, 18, 52);
 		return true;
 	}else {
 		return false;
@@ -61,6 +61,7 @@ public double calcularCobranca() {
 	double valorTotal;
 	
 	valorTotal = (this.calcularTempoUsado()/tempoFracao) * valorFracao;
+	valorTotal = valorTotal * this.vaga.getAjuste();
 	
 	if(valorTotal >= maxCobranca) {
 		valorTotal = maxCobranca;

@@ -13,5 +13,11 @@ public class VagaDefault extends Vaga {
 		super.setStatus(false);
 	}
 
+
+	@Override
+	public double getAjuste(){
+		return ajuste;
+	}
+
 }
 
