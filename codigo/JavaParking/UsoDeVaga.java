@@ -27,9 +27,9 @@ public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 }
 
 public boolean ocuparVaga(){
-	if(this.vaga.getStatus()) {
+	if(!this.vaga.getStatus()) {
 		this.vaga.setStatus(true);
-		this.horaChegada = LocalDateTime.now();
+		this.horaChegada = LocalDateTime.of(2024, 9, 26, 16, 13);
 		return true;
 	}else {
 		return false;
@@ -37,9 +37,9 @@ public boolean ocuparVaga(){
 }
 
 public boolean desocuparVaga() {
-	if(!this.vaga.getStatus()) {
+	if(this.vaga.getStatus()) {
 		this.vaga.setStatus(false);
-		this.horaSaida = LocalDateTime.now();
+		this.horaSaida = LocalDateTime.of(2024, 9, 26, 17, 59);
 		return true;
 	}else {
 		return false;
