@@ -1,41 +1,19 @@
 package JavaParking;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Estacionamento {
-private Vaga vaga[];
+private List<Vaga> vagas;
 private int numeroDeVagas;
 private UsoDeVaga usoDeVaga;
-private static int vagasCadastradas;
-
-static {
-	vagasCadastradas = 0;
-}
 
 public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
-	this.vaga = new Vaga[this.numeroDeVagas];
+	this.vagas = new ArrayList<>();
 }
-
-private double calcularCobranca() {
-	double valorCobranca;
-	
-	valorCobranca = (this.usoDeVaga.getTempo()/15) * 4;
-	if(valorCobranca >= 50) {
-		valorCobranca = 50.0;
-	}
-	return valorCobranca;
-}
-
-public double getValorCobranca() {
-	return calcularCobranca();
-}
-
-public boolean cadastrarVaga(Vaga vaga) {
-	if(vagasCadastradas < this.numeroDeVagas) {
-		this.vaga[vagasCadastradas] = vaga;
-		vagasCadastradas++;
-		return true;
-	}
-	return false;
+public void cadastrarVaga(Vaga vaga) {
+	this.vagas.add(vaga);
 }
 
 }
