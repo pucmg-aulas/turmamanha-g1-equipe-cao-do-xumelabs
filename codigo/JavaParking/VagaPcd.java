@@ -12,8 +12,4 @@ public class VagaPcd extends Vaga{
 		super(numeroVaga);
 		super.setStatus(false);
 	}
-
-	public static double getAjuste() {
-		return ajuste;
-	}
 }

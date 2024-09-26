@@ -13,7 +13,4 @@ public class VagaVip extends Vaga {
 		super.setStatus(false);
 	}
 
-	public static double getAjuste() {
-		return ajuste;
-	}
 }

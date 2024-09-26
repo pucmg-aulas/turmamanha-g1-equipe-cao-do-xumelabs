@@ -11,8 +11,4 @@ public class VagaIdoso extends Vaga {
 		super(numeroVaga);
 		super.setStatus(false);
 	}
-
-	public static double getAjuste() {
-		return ajuste;
-	}
 }
