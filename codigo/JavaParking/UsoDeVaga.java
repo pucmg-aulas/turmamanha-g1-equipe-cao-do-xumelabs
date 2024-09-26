@@ -1,39 +1,73 @@
 package JavaParking;
 
+import java.time.LocalDateTime;
+import java.time.Duration;
+
 public class UsoDeVaga {
 private Veiculo veiculo;
 private Vaga vaga;
-private int horaChegada;
-private int minutoChegada;
-private int horaSaida;
-private int minutoSaida;
-private int tempoUsado;
+private LocalDateTime horaChegada;
+private LocalDateTime horaSaida;
+private Duration tempoUsado;
+private static final int maxCobranca;
+private static final int valorFracao;
+private static final int tempoFracao;
 
-public UsoDeVaga(Veiculo veiculo, Vaga vaga, int horaChegada, int minutoChegada, int horaSaida, int minutoSaida) {
+static {
+	maxCobranca = 50;
+	valorFracao = 4;
+	tempoFracao = 15;
+}
+
+
+public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 	this.veiculo = veiculo;
 	this.vaga = vaga;
-	this.horaChegada = horaChegada;
-	this.minutoChegada = minutoChegada;
-	this.horaSaida = horaSaida;
-	this.minutoSaida = minutoSaida;
-	validarHorario();
+	this.ocuparVaga();
 }
 
-private void validarHorario() {
-	if(this.horaChegada >= 24 || this.horaChegada < 0) {
-		this.horaChegada = 0;
-	}
-	if(this.horaSaida >= 24 || this.horaSaida < 0) {
-		this.horaSaida = 0;
-	}
-	if(this.minutoChegada >= 60 || this.minutoChegada < 0) {
-		this.minutoChegada = 0;
-	}
-	if(this.minutoSaida >= 60 || this.minutoSaida < 0) {
-		this.minutoSaida = 0;
+public boolean ocuparVaga(){
+	if(this.vaga.getStatus()) {
+		this.vaga.setStatus(true);
+		this.horaChegada = LocalDateTime.now();
+		return true;
+	}else {
+		return false;
 	}
 }
 
+public boolean desocuparVaga() {
+	if(!this.vaga.getStatus()) {
+		this.vaga.setStatus(false);
+		this.horaSaida = LocalDateTime.now();
+		return true;
+	}else {
+		return false;
+	}
+}
+
+private long calcularTempoUsado() {
+	
+	if(this.horaChegada.getHour() == this.horaSaida.getHour()) {
+		this.tempoUsado = Duration.ofMinutes(this.horaSaida.getMinute() - this.horaChegada.getMinute());
+	}else {
+		this.tempoUsado =  Duration.between(this.horaSaida, this.horaChegada);
+	}
+	
+	return this.tempoUsado.toMinutes();
+}
+
+public double calcularCobranca() {
+	double valorTotal;
+	
+	valorTotal = (this.calcularTempoUsado()/tempoFracao) * valorFracao;
+	
+	if(valorTotal >= maxCobranca) {
+		valorTotal = maxCobranca;
+	}
+	
+	return valorTotal;
+}
 
 public Veiculo getVeiculo() {
 	return this.veiculo;
@@ -41,35 +75,5 @@ public Veiculo getVeiculo() {
 
 public Vaga getVaga() {
 	return this.vaga;
-}
-
-public boolean ocuparVaga(){
-	if(!this.vaga.getStatus()) {
-		this.vaga.setStatus(true);
-		return true;
-	}
-	return false;
-}
-
-public boolean desocuparVaga() {
-	if(this.vaga.getStatus()) {
-		this.vaga.setStatus(false);
-		return true;
-	}
-	return false;
-}
-
-private int calcularTempo() {
-	if(this.horaChegada == this.horaSaida) {
-		this.tempoUsado = this.minutoSaida - this.minutoChegada;
-	}else {
-		this.tempoUsado =(this.horaSaida - this.horaChegada) * 60;
-		this.tempoUsado += this.minutoSaida - this.minutoChegada;
-	}
-	return this.tempoUsado;
-}
-
-public int getTempo() {
-	return this.calcularTempo();
 }
 }
