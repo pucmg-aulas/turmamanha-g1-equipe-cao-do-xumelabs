@@ -1,9 +1,8 @@
 package JavaParking;
 
-public class Vaga {
+public abstract class Vaga {
 private String numeroVaga;
 private boolean status;
-private static final double ajuste = 1;
 
 public Vaga(String numeroVaga) {
 	this.numeroVaga = numeroVaga;
@@ -26,7 +25,6 @@ public void setNumeroVaga(String numeroVaga) {
 	this.numeroVaga = numeroVaga;
 }
 
-public double getAjuste() {
-	return ajuste;
-}
+public abstract double getAjuste();
+
 }
