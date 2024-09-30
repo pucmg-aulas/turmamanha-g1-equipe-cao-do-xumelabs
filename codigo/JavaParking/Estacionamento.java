@@ -10,11 +10,27 @@ private UsoDeVaga usoDeVaga;
 
 public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
-	this.vagas = new ArrayList<>();
+	this.vagas = new ArrayList<>(numeroDeVagas);
 }
 
-public void cadastrarVaga(Vaga vaga) {
-	this.vagas.add(vaga);
+public boolean cadastrarVaga(Vaga vaga) {
+	if(this.validarVaga(vaga) || this.vagas.size() < numeroDeVagas){
+		this.vagas.add(vaga);
+		return true;
+	}else{
+		return false;
+	}
+}
+
+private boolean validarVaga(Vaga vaga){
+	boolean resposta = true;
+	
+	for(int i=0; i< vagas.size(); i++){
+		if(vaga.getNumeroVaga().equals(vagas.get(i).getNumeroVaga())){
+			resposta = false;
+		}
+	}
+	return resposta;
 }
 
 }
