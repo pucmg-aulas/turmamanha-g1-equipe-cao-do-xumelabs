@@ -16,3 +16,7 @@
 
 ![DiagramaParking (1)](https://github.com/user-attachments/assets/cff77305-0018-4e4e-a4e4-83b0bee16e80)
 
+#05
+
+![DiagramaParking](https://github.com/user-attachments/assets/07321f61-ae2c-44ef-9081-d01b1f9f9ee8)
+
