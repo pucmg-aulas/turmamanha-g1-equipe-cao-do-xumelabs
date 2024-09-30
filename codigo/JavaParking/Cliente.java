@@ -14,10 +14,8 @@ public class Cliente {
     }
 
     public Cliente(String nome) {
+        this();
         this.nome = nome;
-        this.identificador = proximoid;
-        proximoid++;
-        this.veiculos = new ArrayList<>();
     }
 
     public Cliente() {
