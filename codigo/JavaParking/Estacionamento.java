@@ -6,11 +6,12 @@ import java.util.List;
 public class Estacionamento {
 private List<Vaga> vagas;
 private int numeroDeVagas;
-private UsoDeVaga usoDeVaga;
+private List<UsoDeVaga> usoDeVagas;
 
 public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
 	this.vagas = new ArrayList<>(numeroDeVagas);
+	this.usoDeVagas = new ArrayList<>();
 }
 
 public boolean cadastrarVaga(Vaga vaga) {
@@ -31,6 +32,19 @@ private boolean validarVaga(Vaga vaga){
 		}
 	}
 	return resposta;
+}
+
+public void estacionar(UsoDeVaga usoDeVaga){
+	this.usoDeVagas.add(usoDeVaga);
+}
+
+public double sairDaVaga(UsoDeVaga usoDeVaga){
+	usoDeVaga.desocuparVaga();
+	return usoDeVaga.calcularCobranca();
+}
+
+public List listaDeUsoDeVagas(){
+	return this.usoDeVagas;
 }
 
 }

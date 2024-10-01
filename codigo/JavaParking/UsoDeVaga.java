@@ -26,7 +26,7 @@ public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 	this.ocuparVaga();
 }
 
-public boolean ocuparVaga(){
+private boolean ocuparVaga(){
 	if(this.vaga.isOcupada() == false) {
 		this.vaga.alterarDisponibilidade(true);
 		this.horaChegada = LocalDateTime.now();
