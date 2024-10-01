@@ -13,10 +13,14 @@ public class Cliente {
         proximoid = 1;
     }
 
+    // Construtuor do cliente recebendo o nome 
+
     public Cliente(String nome) {
         this();
         this.nome = nome;
     }
+
+    // Construtor caso o cliente deseje ser anônimo
 
     public Cliente() {
         this.nome = "Anonimo";
@@ -33,9 +37,13 @@ public class Cliente {
         return this.identificador;
     }
 
+    // Método para adicionar um novo carro ao cliente 
+
     public void cadastrarVeiculo(Veiculo veiculo) {
         this.veiculos.add(veiculo);
     }
+
+    // Método para retornar o array list de veículos do cliente 
 
     public List<Veiculo> getVeiculos() {
         return veiculos;

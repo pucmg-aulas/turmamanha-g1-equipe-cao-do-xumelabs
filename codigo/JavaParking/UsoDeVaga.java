@@ -1,7 +1,7 @@
 package JavaParking;
 
-import java.time.LocalDateTime;
 import java.time.Duration;
+import java.time.LocalDateTime;
 
 public class UsoDeVaga {
 private Veiculo veiculo;
@@ -20,11 +20,15 @@ static {
 }
 
 
+// Construtor para criar o uso de vaga 
+
 public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 	this.veiculo = veiculo;
 	this.vaga = vaga;
 	this.ocuparVaga();
 }
+
+// Método para iniciar a ocupação de vaga 
 
 private boolean ocuparVaga(){
 	if(this.vaga.isOcupada() == false) {
@@ -35,6 +39,8 @@ private boolean ocuparVaga(){
 		return false;
 	}
 }
+
+// Método para desocupar a vaga e fechar a ocupação de vaga 
 
 public boolean desocuparVaga() {
 	if(this.vaga.isOcupada()) {

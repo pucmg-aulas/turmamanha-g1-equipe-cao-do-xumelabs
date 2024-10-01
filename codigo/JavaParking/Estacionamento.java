@@ -8,11 +8,16 @@ private List<Vaga> vagas;
 private int numeroDeVagas;
 private List<UsoDeVaga> usoDeVagas;
 
+// Construtor para estacionamento 
+
 public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
 	this.vagas = new ArrayList<>(numeroDeVagas);
 	this.usoDeVagas = new ArrayList<>();
+
 }
+
+// Método para o cadastro de uma nova vaga no estacionamento 
 
 public boolean cadastrarVaga(Vaga vaga) {
 	if(this.validarVaga(vaga) || this.vagas.size() < numeroDeVagas){
@@ -22,6 +27,8 @@ public boolean cadastrarVaga(Vaga vaga) {
 		return false;
 	}
 }
+
+//Confere se já não estrapolou o número de vagas do estacionamento 
 
 private boolean validarVaga(Vaga vaga){
 	boolean resposta = true;
@@ -34,14 +41,21 @@ private boolean validarVaga(Vaga vaga){
 	return resposta;
 }
 
+// Inícia o uso de vaga 
+
 public void estacionar(UsoDeVaga usoDeVaga){
 	this.usoDeVagas.add(usoDeVaga);
 }
+
+// Aciona o desocupar vaga e encerra o uso de vaga
+// Passano o valor a ser pago pelo uso 
 
 public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
 	return usoDeVaga.calcularCobranca();
 }
+
+// Retorna o array list de uso de vagas
 
 public List listaDeUsoDeVagas(){
 	return this.usoDeVagas;
