@@ -31,4 +31,8 @@ public class Main {
 
         System.out.println("Você escolheu a opção: " + i);
     }
+    Veiculo v = new Veiculo("1234");
+    Cliente c = new Cliente("diogo");
+
+    
 }

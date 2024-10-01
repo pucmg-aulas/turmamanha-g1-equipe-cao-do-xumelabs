@@ -1,5 +1,8 @@
 package JavaParking;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,11 +44,29 @@ public class Cliente {
 
     public void cadastrarVeiculo(Veiculo veiculo) {
         this.veiculos.add(veiculo);
+        registarNovoCliente();
     }
 
     // Método para retornar o array list de veículos do cliente 
 
     public List<Veiculo> getVeiculos() {
         return veiculos;
+    }
+
+    private void registarNovoCliente(){
+        String nomeAquivo = "Clientes.txt";
+    
+        try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+            escritor.write("-------------------------------------");
+            escritor.newLine();
+            escritor.write("Cliente nome " + this.nome +"\nIdentificador " + this.identificador + " ");
+            for(int i=0; i< veiculos.size(); i++){
+                escritor.newLine();
+                escritor.write("veículo placa " + this.veiculos.get(i).getPlaca());
+            }
+            escritor.newLine();
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 }
