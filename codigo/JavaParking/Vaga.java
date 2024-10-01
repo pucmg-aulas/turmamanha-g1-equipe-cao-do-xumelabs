@@ -2,29 +2,25 @@ package JavaParking;
 
 public abstract class Vaga {
 private String numeroVaga;
-private boolean status;
+private boolean disponivel;
 
 public Vaga(String numeroVaga) {
 	this.numeroVaga = numeroVaga;
-	this.status = false;
+	this.disponivel = false;
 }
 
-public boolean getStatus() {
-	return this.status;
-}
-
-public String getNumeroVaga() {
+public String getNumeroVaga(){
 	return this.numeroVaga;
 }
 
-public void setStatus(boolean status) {
-	this.status = status;
+public boolean isOcupada() {
+	return this.disponivel;
 }
 
-public void setNumeroVaga(String numeroVaga) {
-	this.numeroVaga = numeroVaga;
+public void alterarDisponibilidade(boolean disponivel) {
+	this.disponivel = disponivel;
 }
 
-public abstract double getAjuste();
+public abstract double calcularAjuste();
 
 }

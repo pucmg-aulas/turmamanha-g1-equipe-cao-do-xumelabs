@@ -27,9 +27,9 @@ public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
 }
 
 public boolean ocuparVaga(){
-	if(this.vaga.getStatus() == false) {
-		this.vaga.setStatus(true);
-		this.horaChegada = LocalDateTime.of(2024, 9, 26, 18, 52);
+	if(this.vaga.isOcupada() == false) {
+		this.vaga.alterarDisponibilidade(true);
+		this.horaChegada = LocalDateTime.now();
 		return true;
 	}else {
 		return false;
@@ -37,9 +37,9 @@ public boolean ocuparVaga(){
 }
 
 public boolean desocuparVaga() {
-	if(this.vaga.getStatus()) {
-		this.vaga.setStatus(false);
-		this.horaSaida = LocalDateTime.of(2024, 9, 26, 20, 52);
+	if(this.vaga.isOcupada()) {
+		this.vaga.alterarDisponibilidade(false);
+		this.horaSaida = LocalDateTime.now();
 		return true;
 	}else {
 		return false;
@@ -61,7 +61,7 @@ public double calcularCobranca() {
 	double valorTotal;
 	
 	valorTotal = (this.calcularTempoUsado()/tempoFracao) * valorFracao;
-	valorTotal = valorTotal * this.vaga.getAjuste();
+	valorTotal = valorTotal * this.vaga.calcularAjuste();
 	
 	if(valorTotal >= maxCobranca) {
 		valorTotal = maxCobranca;

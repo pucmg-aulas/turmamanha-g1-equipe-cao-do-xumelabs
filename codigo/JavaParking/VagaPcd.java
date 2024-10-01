@@ -2,19 +2,19 @@ package JavaParking;
 
 public class VagaPcd extends Vaga{
 	
-	private static final double ajuste;
+	private static final double desconto;
 	
 	static {
-		ajuste = 0.87;
+		desconto = 0.87;
 	}
 	
 	public VagaPcd(String numeroVaga) {
 		super(numeroVaga);
-		super.setStatus(false);
+		super.alterarDisponibilidade(false);
 	}
 
 	@Override
-	public double getAjuste(){
-		return ajuste;
+	public double calcularAjuste(){
+		return desconto;
 	}
 }

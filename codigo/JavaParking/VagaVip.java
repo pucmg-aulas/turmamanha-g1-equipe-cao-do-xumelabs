@@ -2,19 +2,19 @@ package JavaParking;
 
 public class VagaVip extends Vaga {
 
-	private static final double ajuste;
+	private static final double taxa;
 	
 	static {
-		ajuste = 1.2;
+		taxa = 1.2;
 	}
 	
 	public VagaVip(String numeroVaga) {
 		super(numeroVaga);
-		super.setStatus(false);
+		super.alterarDisponibilidade(false);
 	}
 
 	@Override
-	public double getAjuste(){
-		return ajuste;
+	public double calcularAjuste(){
+		return taxa;
 	}
 }
