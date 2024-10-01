@@ -1,17 +1,34 @@
 package JavaParking;
 
-public class Main{
-	public static void main(String args[]) {
-		Veiculo v1 = new Veiculo("q1231");
-		Vaga v5 = new VagaIdoso("1515");
-		
-		VagaIdoso v2 = new VagaIdoso("1515");
-		VagaVip v3 = new VagaVip("1515");
+import java.util.Scanner;
 
-		UsoDeVaga v9 = new UsoDeVaga(v1, v3);
+public class Main {
 
-		v9.desocuparVaga();
+    // Método para exibir o menu
+    public String Menu() {
+        // Melhorando o estilo da string do menu
+        return """
+                ===============================
+                       JAVA PARKING SYSTEM
+                ===============================
+                1. Cadastrar Vaga
+                2. Usar Vaga
+                3. Cadastrar Cliente
+                4. Cadastrar Veículo
+                ===============================
+                Digite a opção desejada: 
+                """;
+    }
 
-		System.out.println(v9.calcularCobranca());
-	}
+    public static void main(String[] args) {
+        Main main = new Main();
+        Scanner teclado = new Scanner(System.in);
+
+        System.out.println(main.Menu());
+
+        int i = teclado.nextInt();
+        teclado.close();
+
+        System.out.println("Você escolheu a opção: " + i);
+    }
 }
