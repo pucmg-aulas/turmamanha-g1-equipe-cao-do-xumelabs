@@ -29,6 +29,7 @@ private boolean validarVaga(Vaga vaga){
 		if(vaga.getNumeroVaga().equals(vagas.get(i).getNumeroVaga())){
 			resposta = false;
 		}
+		System.out.println("Teste");
 	}
 	return resposta;
 }
