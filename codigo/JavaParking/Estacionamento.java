@@ -32,7 +32,7 @@ public boolean cadastrarVaga(Vaga vaga) {
 	}
 }
 
-//Confere se já não estrapolou o número de vagas do estacionamento 
+//Confere se o nome da vaga nova já existe, caso exista ela nao podera existir
 
 private boolean validarVaga(Vaga vaga){
 	boolean resposta = true;

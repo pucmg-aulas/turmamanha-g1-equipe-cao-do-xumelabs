@@ -32,7 +32,7 @@ public class Main {
 					break;
 
 				case 4:
-					
+					estacionarCarro(teclado, e1);
 					break;
 
 				case 5:
@@ -138,6 +138,17 @@ public class Main {
 		System.out.println("Cliente cadastrado com Sucesso");
 	}
 	
+	}
+
+	private static void estacionarCarro(Scanner teclado, Estacionamento estacionamento){
+		System.out.println("Digite a placa do carro: ");
+		if(teclado.hasNext()){
+			teclado.nextLine();
+		}
+		String placa = teclado.nextLine();
+
+		UsoDeVaga usoDeVaga = new UsoDeVaga(null, null);
+		estacionamento.estacionar(null);
 	}
 
 	private static String MenuDeTipoDeVaga() {
