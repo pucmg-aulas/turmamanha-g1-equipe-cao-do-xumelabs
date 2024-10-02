@@ -116,7 +116,21 @@ public class Main {
     }
 }
 
+	private static void cadastrarCliente(Scanner teclado, Estacionamento estacionamento){
+	System.out.println("======= Cadastrar Cliente =======\n");
+	System.out.println("Você deseja salvar o seu nome?");
+	System.out.println("1. Sim");
+	System.out.println("2. Não");
+	System.out.print("\nEscolha uma opção: ");
+	int i = teclado.nextInt();
+
+	if(i == 1){
+
+	}else{
+		
+	}
 	
+	}
 
 	private static String MenuDeTipoDeVaga() {
 		return "=============================================\n" +
