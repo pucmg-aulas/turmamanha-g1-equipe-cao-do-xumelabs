@@ -1,10 +1,10 @@
 package JavaParking;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Estacionamento {
 private List<Vaga> vagas;
@@ -61,6 +61,7 @@ public double sairDaVaga(UsoDeVaga usoDeVaga){
 
 public void cadastrarCliente(Cliente cliente){
 	this.clientes.add(cliente);
+	registarNovoCliente();
 
 }
 
@@ -71,7 +72,7 @@ public List<Cliente> ListaDeClientes(){
 private void registarNovoCliente(){
 	String nomeAquivo = "Clientes.txt";
 
-	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
 		for(Cliente cliente : clientes){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
