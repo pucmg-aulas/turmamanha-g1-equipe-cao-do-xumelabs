@@ -24,7 +24,7 @@ public Estacionamento(int numeroDeVagas) {
 // Método para o cadastro de uma nova vaga no estacionamento 
 
 public boolean cadastrarVaga(Vaga vaga) {
-	if(this.validarVaga(vaga) || this.vagas.size() < numeroDeVagas){
+	if(this.validarVaga(vaga) && this.vagas.size() < numeroDeVagas){
 		this.vagas.add(vaga);
 		return true;
 	}else{

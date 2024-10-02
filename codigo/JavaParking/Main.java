@@ -15,7 +15,12 @@ public class Main {
 
 			switch (opcao) {
 				case 1:
-					cadastrarVaga(teclado, e1);
+					System.out.println("Digite o numero alfanumerico da Vaga: ");
+					if (teclado.hasNextLine()) {
+						teclado.nextLine();  // Limpa a quebra de linha pendente
+					}
+					String numeroVaga = teclado.nextLine();  // Agora lê corretamente a string
+					cadastrarVaga(teclado, e1, numeroVaga);
 					break;
 			
 				case 2:
@@ -61,55 +66,57 @@ public class Main {
 				""";
 	}
 
-	private static void cadastrarVaga(Scanner teclado, Estacionamento estacionamento){
-		System.out.println("Digite o numero alfanumerico da Vaga: ");
-		String numeroVaga = teclado.nextLine();
+	private static void cadastrarVaga(Scanner teclado, Estacionamento estacionamento, String numeroVaga){
 
-		System.out.println(MenuDeTipoDeVaga());
-		int tipoDeVaga = teclado.nextInt();
 
-		switch (tipoDeVaga) {
-			case 1:
-				VagaIdoso vagaIdoso = new VagaIdoso(numeroVaga);
-				if(estacionamento.cadastrarVaga(vagaIdoso)){
-					System.out.println("Cadastrada com sucesso\n");
-				}else{
-					System.out.println("Nome de Vaga ja existente\n");
-				}
-				break;
+    System.out.println(MenuDeTipoDeVaga());
+    int tipoDeVaga = teclado.nextInt();  // lê o número do tipo de vaga
+    teclado.nextLine();  // Consome a quebra de linha pendente do nextInt()
 
-			case 2:
-				VagaPcd vagaPcd = new VagaPcd(numeroVaga);
-				if(estacionamento.cadastrarVaga(vagaPcd)){
-					System.out.println("Cadastrada com sucesso\n");
-				}else{
-					System.out.println("Nome de Vaga ja existente\n");
-				}
-				break;
+    switch (tipoDeVaga) {
+        case 1:
+            VagaIdoso vagaIdoso = new VagaIdoso(numeroVaga);
+            if(estacionamento.cadastrarVaga(vagaIdoso)){
+                System.out.println("Cadastrada com sucesso\n");
+            } else {
+                System.out.println("Nome de Vaga ja existente\n");
+            }
+            break;
 
-			case 3:
-				VagaVip vagaVip = new VagaVip(numeroVaga);
-				if(estacionamento.cadastrarVaga(vagaVip)){
-					System.out.println("Cadastrada com sucesso\n");
-				}else{
-					System.out.println("Nome de Vaga ja existente\n");
-				}
-				break;
+        case 2:
+            VagaPcd vagaPcd = new VagaPcd(numeroVaga);
+            if(estacionamento.cadastrarVaga(vagaPcd)){
+                System.out.println("Cadastrada com sucesso\n");
+            } else {
+                System.out.println("Nome de Vaga ja existente\n");
+            }
+            break;
 
-			case 4:
-				VagaDefault vagaDefault = new VagaDefault(numeroVaga);
-				if(estacionamento.cadastrarVaga(vagaDefault)){
-					System.out.println("Cadastrada com sucesso\n");
-				}else{
-					System.out.println("Nome de Vaga ja existente\n");
-				}
-				break;
-		
-			default:
-				System.out.println("Opcao inválida");
-				break;
-		}
-	}
+        case 3:
+            VagaVip vagaVip = new VagaVip(numeroVaga);
+            if(estacionamento.cadastrarVaga(vagaVip)){
+                System.out.println("Cadastrada com sucesso\n");
+            } else {
+                System.out.println("Nome de Vaga ja existente\n");
+            }
+            break;
+
+        case 4:
+            VagaDefault vagaDefault = new VagaDefault(numeroVaga);
+            if(estacionamento.cadastrarVaga(vagaDefault)){
+                System.out.println("Cadastrada com sucesso\n");
+            } else {
+                System.out.println("Nome de Vaga ja existente\n");
+            }
+            break;
+
+        default:
+            System.out.println("Opcao inválida");
+            break;
+    }
+}
+
+	
 
 	private static String MenuDeTipoDeVaga() {
 		return "=============================================\n" +
