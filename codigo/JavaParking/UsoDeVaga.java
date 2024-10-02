@@ -45,14 +45,14 @@ private boolean ocuparVaga(){
 public boolean desocuparVaga() {
 	if(this.vaga.isOcupada()) {
 		this.vaga.alterarDisponibilidade(false);
-		this.horaSaida = LocalDateTime.now();
+		this.horaSaida = LocalDateTime.of(2024,10,02,10,46,52);
 		return true;
 	}else {
 		return false;
 	}
 }
 
-private double calcularTempoUsado() {
+public double calcularTempoUsado() {
 	
 	if(this.horaChegada.getHour() == this.horaSaida.getHour()) {
 		this.tempoUsado = Duration.ofMinutes(this.horaSaida.getMinute() - this.horaChegada.getMinute());

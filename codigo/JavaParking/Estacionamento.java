@@ -55,10 +55,4 @@ public double sairDaVaga(UsoDeVaga usoDeVaga){
 	return usoDeVaga.calcularCobranca();
 }
 
-// Retorna o array list de uso de vagas
-
-public List listaDeUsoDeVagas(){
-	return this.usoDeVagas;
-}
-
 }

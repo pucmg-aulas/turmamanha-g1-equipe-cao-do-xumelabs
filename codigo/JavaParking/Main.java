@@ -12,15 +12,17 @@ public class Main {
                        JAVA PARKING SYSTEM
                 ===============================
                 1. Cadastrar Vaga
-                2. Usar Vaga
-                3. Cadastrar Cliente
-                4. Cadastrar Veículo
+				2. Cadastrar Cliente
+                3. Cadastrar Veículo
+                4. Estacionar Carro
+				5. Desocupar Vaga
                 ===============================
                 Digite a opção desejada: 
                 """;
     }
 
     public static void main(String[] args) {
+		/* 
         Main main = new Main();
         Scanner teclado = new Scanner(System.in);
 
@@ -30,9 +32,21 @@ public class Main {
         teclado.close();
 
         System.out.println("Você escolheu a opção: " + i);
-    }
-    Veiculo v = new Veiculo("1234");
-    Cliente c = new Cliente("diogo");
+		*/
 
-    
+		Veiculo v1 = new Veiculo("12321");
+		Veiculo v2 = new Veiculo("36989");
+		VagaIdoso v7 = new VagaIdoso("155");
+		Cliente c1 = new Cliente();
+		Cliente c2 = new Cliente("pedro");
+		c1.cadastrarVeiculo(v1);
+		c2.cadastrarVeiculo(v2);
+
+		UsoDeVaga v9 = new UsoDeVaga(v2, v7);
+
+		Estacionamento e1 = new Estacionamento(1);
+		e1.cadastrarVaga(v7);
+		e1.estacionar(v9);
+
+    }
 }
