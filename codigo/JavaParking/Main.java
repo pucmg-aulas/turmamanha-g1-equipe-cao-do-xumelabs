@@ -24,7 +24,7 @@ public class Main {
 					break;
 			
 				case 2:
-					
+					cadastrarCliente(teclado, e1);
 					break;
 
 				case 3:
@@ -125,9 +125,17 @@ public class Main {
 	int i = teclado.nextInt();
 
 	if(i == 1){
-
+		if (teclado.hasNextLine()) {
+			teclado.nextLine();  // Limpa a quebra de linha pendente
+		}
+		String nome = teclado.nextLine();
+		Cliente cliente = new Cliente(nome);
+		estacionamento.cadastrarCliente(cliente);
+		System.out.println("Cliente cadastrado com Sucesso");
 	}else{
-		
+		Cliente cliente = new Cliente();
+		estacionamento.cadastrarCliente(cliente);
+		System.out.println("Cliente cadastrado com Sucesso");
 	}
 	
 	}
@@ -143,4 +151,5 @@ public class Main {
 			   "Digite a opção desejada: ";
 
 	}
+
 }
