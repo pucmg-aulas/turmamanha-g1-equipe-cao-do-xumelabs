@@ -37,6 +37,11 @@ public class Main {
 					break;
 			}
 		}while(opcao != 5);
+
+        Estacionamento e = new Estacionamento(43);
+        Cliente c = new Cliente();
+        e.cadastrarCliente(c);
+
     }
 
 	// Método para exibir o menu
@@ -115,5 +120,6 @@ public class Main {
 			   "3. Vaga VIP\n" +
 			   "4. Vaga Normal\n\n" +
 			   "Digite a opção desejada: ";
+
 	}
 }

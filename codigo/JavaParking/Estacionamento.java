@@ -2,11 +2,15 @@ package JavaParking;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Estacionamento {
 private List<Vaga> vagas;
 private int numeroDeVagas;
 private List<UsoDeVaga> usoDeVagas;
+private List<Cliente> clientes;
 
 // Construtor para estacionamento 
 
@@ -55,4 +59,33 @@ public double sairDaVaga(UsoDeVaga usoDeVaga){
 	return usoDeVaga.calcularCobranca();
 }
 
+public void cadastrarCliente(Cliente cliente){
+	this.clientes.add(cliente);
+
 }
+
+public List<Cliente> ListaDeClientes(){
+	return this.clientes;
+}
+
+private void registarNovoCliente(){
+	String nomeAquivo = "Clientes.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+		for(Cliente cliente : clientes){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Cliente nome " + cliente.getNome() +"\nIdentificador " + cliente.getIdentificador() + " ");
+		for(Veiculo veiculo : cliente.getPlacaDeVeiculos()){
+			escritor.newLine();
+			escritor.write("veículo placa " + veiculo.getPlaca());
+		}}
+		escritor.newLine();
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+
+}
+
+}
+
