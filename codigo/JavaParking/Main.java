@@ -79,7 +79,6 @@ public class Main {
 
 	private static void cadastrarVaga(Scanner teclado, Estacionamento estacionamento, String numeroVaga){
 
-
     System.out.println(MenuDeTipoDeVaga());
     int tipoDeVaga = teclado.nextInt();  // lê o número do tipo de vaga
     teclado.nextLine();  // Consome a quebra de linha pendente do nextInt()
@@ -157,8 +156,13 @@ public class Main {
 			teclado.nextLine();
 		}
 		String placa = teclado.nextLine();
+		if(estacionamento.possuiPlaca(placa)){
+			UsoDeVaga usoDeVaga = new UsoDeVaga(null, null);
+		}else{
+			System.out.println("Carro nao encontrado");
+		}
 
-		UsoDeVaga usoDeVaga = new UsoDeVaga(null, null);
+		
 		estacionamento.estacionar(null);
 	}
 

@@ -53,5 +53,13 @@ public class Cliente {
         return placas; // Retorna a lista de placas
     }
 
+    public Veiculo acharCarro(String placa) {
+        for (Veiculo veiculo : veiculos) {
+            if (veiculo.getPlaca().equals(placa)) {
+                return veiculo; // Retorna o veículo se a placa for encontrada
+            }
+        }
+        return null; // Retorna null se o veículo não for encontrado
+    }    
 
 }

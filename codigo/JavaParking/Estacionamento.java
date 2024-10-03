@@ -95,7 +95,8 @@ public void registarNovoCliente(){
 public boolean possuiPlaca(String placa){
 	boolean achou = false;
 	for(int i=0; i<clientes.size(); i++){
-		if(clientes.get(i).getPlacaDeVeiculos().equals(placa)){
+		for(String placas : clientes.get(i).getPlacaDeVeiculos())
+		if(placas == placa){
 			achou = true;
 		}
 	}
