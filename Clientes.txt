@@ -1,0 +1,7 @@
+-------------------------------------
+Cliente nome Anonimo
+Identificador 1 
+veículo placa 1234
+-------------------------------------
+Cliente nome diogo
+Identificador 2 

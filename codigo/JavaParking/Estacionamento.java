@@ -18,6 +18,7 @@ public Estacionamento(int numeroDeVagas) {
 	this.numeroDeVagas = numeroDeVagas;
 	this.vagas = new ArrayList<>(numeroDeVagas);
 	this.usoDeVagas = new ArrayList<>();
+	this.clientes = new ArrayList<>();
 
 }
 
@@ -80,6 +81,7 @@ private void registarNovoCliente(){
 		for(Veiculo veiculo : cliente.getPlacaDeVeiculos()){
 			escritor.newLine();
 			escritor.write("veículo placa " + veiculo.getPlaca());
+			escritor.newLine();
 		}}
 		escritor.newLine();
 	} catch (IOException e){
