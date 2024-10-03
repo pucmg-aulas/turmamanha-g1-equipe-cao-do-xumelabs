@@ -19,7 +19,7 @@ public String getPlaca() {
 private void registarNovoVeiculo(){
 	String nomeAquivo = "veiculo.txt";
 
-	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("veículo placa " + this.placa);
