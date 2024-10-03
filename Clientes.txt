@@ -2,6 +2,10 @@
 Cliente nome Anonimo
 Identificador 1 
 veículo placa 1234
+
+veículo placa 8123
 -------------------------------------
-Cliente nome diogo
+Cliente nome Diogo
 Identificador 2 
+veículo placa 4123
+

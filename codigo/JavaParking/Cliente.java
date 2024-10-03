@@ -36,8 +36,10 @@ public class Cliente {
     }
 
     // Método para adicionar um novo carro ao cliente
-    public void cadastrarVeiculo(Veiculo veiculo) {
+    public void cadastrarVeiculo(Veiculo veiculo, Estacionamento estacionamento) {
         this.veiculos.add(veiculo);
+        estacionamento.registarNovoCliente();
+    
     }
 
     // Método para retornar e imprimir as placas dos veículos do cliente
@@ -51,8 +53,5 @@ public class Cliente {
         return placas; // Retorna a lista de placas
     }
 
-    public int quantidadeDeVeiculos(){
-        return this.veiculos.size();
-    }
 
 }

@@ -70,7 +70,7 @@ public List<Cliente> ListaDeClientes(){
 	return this.clientes;
 }
 
-private void registarNovoCliente(){
+public void registarNovoCliente(){
 	String nomeAquivo = "Clientes.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
@@ -78,9 +78,9 @@ private void registarNovoCliente(){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Cliente nome " + cliente.getNome() +"\nIdentificador " + cliente.getIdentificador() + " ");
-		for(Veiculo veiculo : cliente.quantidadeDeVeiculos()){
+		for(String placa : cliente.getPlacaDeVeiculos()){
 			escritor.newLine();
-			escritor.write("veículo placa " + veiculo.getPlaca());
+			escritor.write("veículo placa " + placa);
 			escritor.newLine();
 		}}
 		escritor.newLine();
