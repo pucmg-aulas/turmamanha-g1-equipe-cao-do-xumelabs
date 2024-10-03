@@ -78,7 +78,7 @@ private void registarNovoCliente(){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Cliente nome " + cliente.getNome() +"\nIdentificador " + cliente.getIdentificador() + " ");
-		for(Veiculo veiculo : cliente.getPlacaDeVeiculos()){
+		for(Veiculo veiculo : cliente.quantidadeDeVeiculos()){
 			escritor.newLine();
 			escritor.write("veículo placa " + veiculo.getPlaca());
 			escritor.newLine();
@@ -88,6 +88,19 @@ private void registarNovoCliente(){
 		e.printStackTrace();
 	}
 
+}
+
+//verificar se uma placa é de algum cliente 
+
+public boolean possuiPlaca(String placa){
+	boolean achou = false;
+	for(int i=0; i<clientes.size(); i++){
+		if(clientes.get(i).getPlacaDeVeiculos().equals(placa)){
+			achou = true;
+		}
+	}
+
+	return achou;
 }
 
 }

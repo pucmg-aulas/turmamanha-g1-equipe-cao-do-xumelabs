@@ -5,15 +5,6 @@ import java.util.Scanner;
 public class Main {	
 
     public static void main(String[] args) {
-		Estacionamento e = new Estacionamento(43);
-        Cliente c = new Cliente();
-		Veiculo v = new Veiculo("1234");
-		c.cadastrarVeiculo(v);
-        e.cadastrarCliente(c);
-		Cliente c2 = new Cliente("diogo");
-		Veiculo v2 = new Veiculo("1548");
-		e.cadastrarCliente(c2);
-		c2.cadastrarVeiculo(v2);
 		Scanner teclado = new Scanner(System.in);
 		Estacionamento e1 = new Estacionamento(10);
 		int opcao= 0 ;
@@ -52,6 +43,9 @@ public class Main {
 			}
 		}while(opcao != 5);
 
+        Estacionamento e = new Estacionamento(43);
+        Cliente c = new Cliente();
+        e.cadastrarCliente(c);
 
     }
 

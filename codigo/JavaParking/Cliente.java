@@ -41,11 +41,18 @@ public class Cliente {
     }
 
     // Método para retornar e imprimir as placas dos veículos do cliente
-    public List<Veiculo> getPlacaDeVeiculos() {
+    public List<String> getPlacaDeVeiculos() {
+        List<String> placas = new ArrayList<>(); // Cria uma lista para armazenar as placas
+    
         for (Veiculo veiculo : veiculos) {
-            System.out.println(veiculo.getPlaca());
+            placas.add(veiculo.getPlaca()); // Adiciona cada placa à lista
         }
-        return veiculos;
+    
+        return placas; // Retorna a lista de placas
+    }
+
+    public int quantidadeDeVeiculos(){
+        return this.veiculos.size();
     }
 
 }
