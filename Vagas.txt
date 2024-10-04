@@ -1,3 +1,9 @@
 -------------------------------------
-Numero da Vaga A25
-Tipo da vaga Vip
+Numero da Vaga er21
+Tipo da vaga Idoso
+-------------------------------------
+Numero da Vaga er21
+Tipo da vaga Pcd
+-------------------------------------
+Numero da Vaga er22
+Tipo da vaga Pcd
