@@ -104,5 +104,66 @@ public boolean possuiPlaca(String placa){
 	return achou;
 }
 
+
+public void registrarNovaVagaVIp(){
+	String nomeAquivo = "Vagas.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+		for(Vaga vaga : vagas){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Vip");
+		escritor.newLine();
+		}
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+}
+
+public void registrarNovaVagaIdoso(){
+	String nomeAquivo = "Vagas.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+		for(Vaga vaga : vagas){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Vip");
+		escritor.newLine();
+		}
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+}
+
+public void registrarNovaVagaPcd(){
+	String nomeAquivo = "Vagas.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+		for(Vaga vaga : vagas){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Pcd");
+		escritor.newLine();
+		}
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+}
+
+public void registrarNovaVagaDefault(){
+	String nomeAquivo = "Vagas.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
+		for(Vaga vaga : vagas){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Default");
+		escritor.newLine();
+		}
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+}
+
 }
 
