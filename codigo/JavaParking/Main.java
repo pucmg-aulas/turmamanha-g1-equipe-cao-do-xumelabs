@@ -157,7 +157,38 @@ public class Main {
 		}
 		String placa = teclado.nextLine();
 		if(estacionamento.possuiPlaca(placa)){
-			UsoDeVaga usoDeVaga = new UsoDeVaga(null, null);
+			System.out.println(MenuDeTipoDeVaga());
+			int i = teclado.nextInt();
+			switch (i) {
+				case 1:
+					VagaIdoso vagaIdoso = new VagaIdoso("1234");
+					Veiculo veiculo = new Veiculo(placa);
+					UsoDeVaga usoDeVaga = new UsoDeVaga(veiculo, vagaIdoso);
+					estacionamento.estacionar(usoDeVaga);
+					break;
+				case 2:
+					VagaPcd vagaPcd = new VagaPcd("1234");
+					Veiculo veiculo2 = new Veiculo(placa);
+					UsoDeVaga usoDeVaga2 = new UsoDeVaga(veiculo2, vagaPcd);
+					estacionamento.estacionar(usoDeVaga2);
+					break;
+				case 3:
+					VagaVip vagaVip = new VagaVip("1234");
+					Veiculo veiculo3 = new Veiculo(placa);
+					UsoDeVaga usoDeVaga3 = new UsoDeVaga(veiculo3, vagaVip);
+					estacionamento.estacionar(usoDeVaga3);
+					break;
+				case 4:
+					VagaDefault vagaDefault = new VagaDefault("1234");
+					Veiculo veiculo4 = new Veiculo(placa);
+					UsoDeVaga usoDeVaga4 = new UsoDeVaga(veiculo4, vagaDefault);
+					estacionamento.estacionar(usoDeVaga4);
+					break;
+			
+				default:
+					break;
+			}
+			
 		}else{
 			System.out.println("Carro nao encontrado");
 		}
