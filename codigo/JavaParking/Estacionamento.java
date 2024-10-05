@@ -33,7 +33,7 @@ public boolean cadastrarVaga(Vaga vaga) {
 	}
 }
 
-//Confere se o nome da vaga nova já existe, caso exista ela nao podera existir
+//Confere se o nome da vaga nova já existe, caso exista ela nao pode ser cadastrada novamente
 
 private boolean validarVaga(Vaga vaga){
 	boolean resposta = true;
@@ -53,7 +53,7 @@ public void estacionar(UsoDeVaga usoDeVaga){
 }
 
 // Aciona o desocupar vaga e encerra o uso de vaga
-// Passano o valor a ser pago pelo uso 
+// Passando o valor a ser pago pelo uso 
 
 public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
