@@ -57,6 +57,7 @@ public void estacionar(UsoDeVaga usoDeVaga){
 
 public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
+	registarNovoUsodeVaga();
 	return usoDeVaga.calcularCobranca();
 }
 
@@ -64,6 +65,10 @@ public void cadastrarCliente(Cliente cliente){
 	this.clientes.add(cliente);
 	registarNovoCliente();
 
+}
+
+public List<UsoDeVaga> ListaDeUsoDeVagas(){
+	return this.usoDeVagas;
 }
 
 public List<Cliente> ListaDeClientes(){
@@ -89,6 +94,29 @@ public void registarNovoCliente(){
 	}
 
 }
+
+public void registarNovoUsodeVaga(){
+	String nomeAquivo = "UsoDeVaga.txt";
+
+	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
+		for(UsoDeVaga usoDeVaga : usoDeVagas){
+		escritor.write("-------------------------------------");
+		escritor.newLine();
+		escritor.write("Veiculo " + usoDeVaga.getVeiculo() +"\nIVaga " + usoDeVaga.getVaga() + " ");
+		escritor.newLine();
+		escritor.write("Tempo estacionado " + usoDeVaga.calcularTempoUsado());
+		escritor.newLine();
+		escritor.write("Valor cobrado " + usoDeVaga.calcularCobranca());
+		escritor.newLine();
+		}
+		escritor.newLine();
+	} catch (IOException e){
+		e.printStackTrace();
+	}
+
+}
+
+
 
 //verificar se uma placa é de algum cliente 
 

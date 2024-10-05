@@ -2,12 +2,4 @@
 Cliente nome Anonimo
 Identificador 1 
 veículo placa 123
-veículo placa 41231
--------------------------------------
-Cliente nome Anonimo
-Identificador 2 
-veículo placa 4321
--------------------------------------
-Cliente nome Anonimo
-Identificador 3 
 

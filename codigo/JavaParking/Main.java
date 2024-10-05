@@ -145,6 +145,9 @@ public class Main {
 	private static void cadastarVeiculo(Scanner teclado, Estacionamento estacionamento){
 		System.out.println("======= Cadastrar Veículo =======\n");
 		System.out.println("Informe o identificador do Dono");
+		if (teclado.hasNextLine()) {
+			teclado.nextLine();  // Limpa a quebra de linha pendente
+		}
 		int identificador = teclado.nextInt();
 		teclado.nextLine();
 		boolean clienteEncontrado = false;
@@ -177,6 +180,26 @@ public class Main {
 
 		
 		estacionamento.estacionar(null);
+	}
+
+	private static void desocuparVaga(Scanner teclado, Estacionamento estacionamento){
+		System.out.println("Digite a placa do carro: ");
+		if(teclado.hasNext()){
+			teclado.nextLine();
+		}
+		String placa = teclado.nextLine();
+		boolean usoDeVagaEncontrado = false;
+		for (UsoDeVaga usoDeVaga : estacionamento.ListaDeUsoDeVagas()){
+			if( usoDeVaga.getVeiculo().getPlaca() == placa)
+			{
+				estacionamento.sairDaVaga(usoDeVaga);
+				usoDeVagaEncontrado = true;
+			}
+		}
+		if(!usoDeVagaEncontrado){
+			System.out.println("Uso de vaga não encontrado");
+		}
+		
 	}
 
 	private static String MenuDeTipoDeVaga() {
