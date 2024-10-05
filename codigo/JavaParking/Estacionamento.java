@@ -78,8 +78,8 @@ public void registarNovoCliente(){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Cliente nome " + cliente.getNome() +"\nIdentificador " + cliente.getIdentificador() + " ");
+		escritor.newLine();
 		for(String placa : cliente.getPlacaDeVeiculos()){
-			escritor.newLine();
 			escritor.write("veículo placa " + placa);
 			escritor.newLine();
 		}}

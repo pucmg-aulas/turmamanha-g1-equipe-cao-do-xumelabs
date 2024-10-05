@@ -5,19 +5,6 @@ import java.util.Scanner;
 public class Main {	
 
     public static void main(String[] args) {
-		
-		Estacionamento e = new Estacionamento(43);
-        Cliente c = new Cliente();
-		Veiculo v = new Veiculo("1234");
-		c.cadastrarVeiculo(v,e);
-        e.cadastrarCliente(c);
-		Cliente c1 = new Cliente("Diogo");
-		Veiculo v2 = new Veiculo("4123");
-		c1.cadastrarVeiculo(v2,e);
-		e.cadastrarCliente(c1);
-		Veiculo v3 = new Veiculo("8123");
-		c.cadastrarVeiculo(v3,e);
-
 		Scanner teclado = new Scanner(System.in);
 		Estacionamento e1 = new Estacionamento(10);
 		int opcao= 0 ;
@@ -41,7 +28,7 @@ public class Main {
 					break;
 
 				case 3:
-					
+					cadastarVeiculo( teclado, e1);
 					break;
 
 				case 4:
@@ -153,6 +140,28 @@ public class Main {
 	}
 	
 	}
+
+
+	private static void cadastarVeiculo(Scanner teclado, Estacionamento estacionamento){
+		System.out.println("======= Cadastrar Veículo =======\n");
+		System.out.println("Informe o identificador do Dono");
+		int identificador = teclado.nextInt();
+		teclado.nextLine();
+		boolean clienteEncontrado = false;
+		for (Cliente cliente : estacionamento.ListaDeClientes()){
+			if (identificador == cliente.getIdentificador()){
+				clienteEncontrado = true;
+				System.out.println("Informe a placa do veículo");
+				String placa = teclado.nextLine();
+				Veiculo veiculo = new Veiculo(placa);
+				cliente.cadastrarVeiculo(veiculo, estacionamento);
+				System.out.println("Veículo cadastrado com sucesso");
+		}
+		}if(!clienteEncontrado){
+		{System.out.println("Cliente não encontrado");}
+	}
+}
+
 
 	private static void estacionarCarro(Scanner teclado, Estacionamento estacionamento){
 		System.out.println("Digite a placa do carro: ");
