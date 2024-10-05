@@ -1,9 +1,12 @@
 -------------------------------------
-Numero da Vaga er21
+Numero da Vaga ar12
 Tipo da vaga Idoso
 -------------------------------------
-Numero da Vaga er21
+Numero da Vaga ar13
 Tipo da vaga Pcd
 -------------------------------------
-Numero da Vaga er22
-Tipo da vaga Pcd
+Numero da Vaga ar14
+Tipo da vaga Vip
+-------------------------------------
+Numero da Vaga ar15
+Tipo da vaga Idoso

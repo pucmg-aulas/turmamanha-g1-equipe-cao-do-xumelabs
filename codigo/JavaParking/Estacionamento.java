@@ -105,65 +105,58 @@ public boolean possuiPlaca(String placa){
 }
 
 
-/* public void registrarNovaVagaVIp(){
+ public void registrarNovaVagaVIp(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
-		for(Vaga vaga : vagas){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Vip");
 		escritor.newLine();
-		}
 	} catch (IOException e){
 		e.printStackTrace();
 	}
 }
 
-public void registrarNovaVagaIdoso(){
+public void registrarNovaVagaIdoso(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
-		for(Vaga vaga : vagas){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Idoso");
 		escritor.newLine();
-		}
 	} catch (IOException e){
 		e.printStackTrace();
 	}
 }
 
-public void registrarNovaVagaPcd(){
+public void registrarNovaVagaPcd(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
-		for(Vaga vaga : vagas){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Pcd");
 		escritor.newLine();
-		}
+		
 	} catch (IOException e){
 		e.printStackTrace();
 	}
 }
 
-public void registrarNovaVagaDefault(){
+public void registrarNovaVagaDefault(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
-		for(Vaga vaga : vagas){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
 		escritor.write("Numero da Vaga " + vaga.getNumeroVaga() +"\nTipo da vaga Default");
 		escritor.newLine();
-		}
 	} catch (IOException e){
 		e.printStackTrace();
 	}
-}(
-*/
+}
+
 }
 
