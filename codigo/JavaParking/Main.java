@@ -7,7 +7,7 @@ public class Main {
     public static void main(String[] args) {
 		Scanner teclado = new Scanner(System.in);
 		Estacionamento e1 = new Estacionamento(10);
-		int opcao= 0 ;
+		int opcao = 0;
 		
 		do{
 			System.out.println(Menu());
@@ -66,8 +66,7 @@ public class Main {
 				5. Desocupar Vaga
 				6. Sair
 				===============================
-				Digite a opção desejada: 
-				""";
+				Digite a opção desejada: """;
 	}
 
 	private static void cadastrarVaga(Scanner teclado, Estacionamento estacionamento, String numeroVaga){
@@ -173,52 +172,36 @@ public class Main {
 
 
 	private static void estacionarCarro(Scanner teclado, Estacionamento estacionamento){
+		Veiculo carroUsado = new Veiculo("123");
+		String numeroVagaOcupada;
+		
 		System.out.println("Digite a placa do carro: ");
 		if(teclado.hasNext()){
 			teclado.nextLine();
 		}
 		String placa = teclado.nextLine();
+
+		//percorre o array de clientes
 		for ( Cliente cliente : estacionamento.ListaDeClientes()){
-		if(placa == cliente.acharCarro(placa).getPlaca()){
-			System.out.println(MenuDeTipoDeVaga());
-			int i = teclado.nextInt();
-			switch (i) {
-				case 1:
-					VagaIdoso vagaIdoso = new VagaIdoso("1234");
-					Veiculo veiculo = new Veiculo(placa);
-					UsoDeVaga usoDeVaga = new UsoDeVaga(veiculo, vagaIdoso);
-					estacionamento.estacionar(usoDeVaga);
-					break;
-				case 2:
-					VagaPcd vagaPcd = new VagaPcd("1234");
-					Veiculo veiculo2 = new Veiculo(placa);
-					UsoDeVaga usoDeVaga2 = new UsoDeVaga(veiculo2, vagaPcd);
-					estacionamento.estacionar(usoDeVaga2);
-					break;
-				case 3:
-					VagaVip vagaVip = new VagaVip("1234");
-					Veiculo veiculo3 = new Veiculo(placa);
-					UsoDeVaga usoDeVaga3 = new UsoDeVaga(veiculo3, vagaVip);
-					estacionamento.estacionar(usoDeVaga3);
-					break;
-				case 4:
-					VagaDefault vagaDefault = new VagaDefault("1234");
-					Veiculo veiculo4 = new Veiculo(placa);
-					UsoDeVaga usoDeVaga4 = new UsoDeVaga(veiculo4, vagaDefault);
-					estacionamento.estacionar(usoDeVaga4);
-					break;
-			
-				default:
-					break;
+		//verifica se a placa digitada existe
+			if(cliente.acharCarro(placa).getPlaca().equals(placa)){
+			carroUsado.setPlaca(placa);
 			}
-			
-		}else{
-			System.out.println("Carro nao encontrado");
 		}
+
+		System.out.println("Digite a vaga ocupada: ");
+		numeroVagaOcupada = teclado.nextLine();
+		for(Vaga vaga : estacionamento.ListaDeVagas()){
+			if(vaga.getNumeroVaga().equals(numeroVagaOcupada)){
+				UsoDeVaga usoDeVaga = new UsoDeVaga(carroUsado, vaga);
+				System.out.println("Carro estacionado com sucesso");
+				estacionamento.estacionar(usoDeVaga);
+			}
+		}
+		
 	}
 		
-		estacionamento.estacionar(null);
-	}
+	
 
 	private static void desocuparVaga(Scanner teclado, Estacionamento estacionamento){
 		System.out.println("Digite a placa do carro: ");
@@ -227,8 +210,9 @@ public class Main {
 		}
 		String placa = teclado.nextLine();
 		boolean usoDeVagaEncontrado = false;
+
 		for (UsoDeVaga usoDeVaga : estacionamento.ListaDeUsoDeVagas()){
-			if( usoDeVaga.getVeiculo().getPlaca() == placa)
+			if(usoDeVaga.getVeiculo().getPlaca().equals(placa))
 			{
 				estacionamento.sairDaVaga(usoDeVaga);
 				System.out.println("Vaga desocupada");

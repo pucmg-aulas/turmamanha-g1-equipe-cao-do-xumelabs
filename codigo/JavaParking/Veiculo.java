@@ -16,6 +16,10 @@ public String getPlaca() {
 	return this.placa;
 }
 
+public void setPlaca(String placa){
+	this.placa = placa;
+}
+
 private void registarNovoVeiculo(){
 	String nomeAquivo = "veiculo.txt";
 

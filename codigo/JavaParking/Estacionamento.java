@@ -59,13 +59,11 @@ public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
 	registarNovoUsodeVaga();
 	return usoDeVaga.calcularCobranca();
-	
 }
 
 public void cadastrarCliente(Cliente cliente){
 	this.clientes.add(cliente);
 	registarNovoCliente();
-
 }
 
 public List<UsoDeVaga> ListaDeUsoDeVagas(){
@@ -107,7 +105,7 @@ public void registarNovoUsodeVaga(){
 		for(UsoDeVaga usoDeVaga : usoDeVagas){
 		escritor.write("-------------------------------------");
 		escritor.newLine();
-		escritor.write("Veiculo " + usoDeVaga.getVeiculo() +"\nIVaga " + usoDeVaga.getVaga() + " ");
+		escritor.write("Veiculo " + usoDeVaga.getVeiculo().getPlaca() +"\nVaga " + usoDeVaga.getVaga().getNumeroVaga() + " ");
 		escritor.newLine();
 		escritor.write("Tempo estacionado " + usoDeVaga.calcularTempoUsado());
 		escritor.newLine();
@@ -120,23 +118,6 @@ public void registarNovoUsodeVaga(){
 	}
 
 }
-
-
-
-//verificar se uma placa é de algum cliente 
-
-public boolean possuiPlaca(String placa){
-	boolean achou = false;
-	for(int i=0; i<clientes.size(); i++){
-		for(String placas : clientes.get(i).getPlacaDeVeiculos())
-		if(placas == placa){
-			achou = true;
-		}
-	}
-
-	return achou;
-}
-
 
  public void registrarNovaVagaVIp(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";

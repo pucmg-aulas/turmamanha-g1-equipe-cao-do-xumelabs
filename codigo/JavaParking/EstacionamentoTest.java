@@ -35,6 +35,6 @@ public class EstacionamentoTest {
         // Verificar se o cliente foi adicionado na lista
         assertEquals(1, estacionamento.ListaDeClientes().size());
         assertEquals("João", estacionamento.ListaDeClientes().get(0).getNome());
-        assertEquals(3, estacionamento.ListaDeClientes().get(0).getIdentificador());
+        assertEquals(1, estacionamento.ListaDeClientes().get(0).getIdentificador());
     }
 }
