@@ -38,7 +38,7 @@ public class Cliente {
     // Método para adicionar um novo carro ao cliente
     public void cadastrarVeiculo(Veiculo veiculo, Estacionamento estacionamento) {
         this.veiculos.add(veiculo);
-        estacionamento.registarNovoCliente();
+        estacionamento.registarClienteTxt();
     
     }
 
@@ -61,6 +61,5 @@ public class Cliente {
         }
         return null; // Retorna null se o veículo não for encontrado
     }   
-  
 
 }

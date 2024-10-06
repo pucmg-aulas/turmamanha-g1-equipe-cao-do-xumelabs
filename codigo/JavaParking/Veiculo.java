@@ -9,7 +9,7 @@ private String placa;
 
 public Veiculo(String placa) {
 	this.placa = placa;
-	registarNovoVeiculo();
+	this.registrarVeiculoTxt();
 }
 
 public String getPlaca() {
@@ -20,7 +20,7 @@ public void setPlaca(String placa){
 	this.placa = placa;
 }
 
-private void registarNovoVeiculo(){
+private void registrarVeiculoTxt(){
 	String nomeAquivo = "veiculo.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){

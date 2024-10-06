@@ -57,13 +57,13 @@ public void estacionar(UsoDeVaga usoDeVaga){
 
 public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
-	registarNovoUsodeVaga();
+	registarUsodeVagaTxt();
 	return usoDeVaga.calcularCobranca();
 }
 
 public void cadastrarCliente(Cliente cliente){
 	this.clientes.add(cliente);
-	registarNovoCliente();
+	registarClienteTxt();
 }
 
 public List<UsoDeVaga> ListaDeUsoDeVagas(){
@@ -78,7 +78,7 @@ public List<Vaga> ListaDeVagas(){
 	return this.vagas;
 }
 
-public void registarNovoCliente(){
+public void registarClienteTxt(){
 	String nomeAquivo = "Clientes.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
@@ -98,7 +98,7 @@ public void registarNovoCliente(){
 
 }
 
-public void registarNovoUsodeVaga(){
+public void registarUsodeVagaTxt(){
 	String nomeAquivo = "UsoDeVaga.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,false))){
@@ -119,7 +119,7 @@ public void registarNovoUsodeVaga(){
 
 }
 
- public void registrarNovaVagaVIp(Vaga vaga){
+ public void registrarVagaVIpTxt(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
@@ -132,7 +132,7 @@ public void registarNovoUsodeVaga(){
 	}
 }
 
-public void registrarNovaVagaIdoso(Vaga vaga){
+public void registrarVagaIdosoTxt(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
@@ -145,7 +145,7 @@ public void registrarNovaVagaIdoso(Vaga vaga){
 	}
 }
 
-public void registrarNovaVagaPcd(Vaga vaga){
+public void registrarVagaPcdTxt(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){
@@ -159,7 +159,7 @@ public void registrarNovaVagaPcd(Vaga vaga){
 	}
 }
 
-public void registrarNovaVagaDefault(Vaga vaga){
+public void registrarVagaDefaultTxt(Vaga vaga){
 	String nomeAquivo = "Vagas.txt";
 
 	try(BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo,true))){

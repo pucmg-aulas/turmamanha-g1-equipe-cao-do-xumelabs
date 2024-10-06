@@ -48,9 +48,6 @@ public class Main {
 					break;
 			}
 		}while(opcao != 6);
-
-        
-
     }
 
 	// Método para exibir o menu
@@ -80,7 +77,7 @@ public class Main {
             VagaIdoso vagaIdoso = new VagaIdoso(numeroVaga);
             if(estacionamento.cadastrarVaga(vagaIdoso)){
                 System.out.println("Cadastrada com sucesso\n");
-				estacionamento.registrarNovaVagaIdoso(vagaIdoso);
+				estacionamento.registrarVagaIdosoTxt(vagaIdoso);
             } else {
                 System.out.println("Nome de Vaga ja existente\n");
             }
@@ -90,7 +87,7 @@ public class Main {
             VagaPcd vagaPcd = new VagaPcd(numeroVaga);
             if(estacionamento.cadastrarVaga(vagaPcd)){
                 System.out.println("Cadastrada com sucesso\n");
-				estacionamento.registrarNovaVagaPcd(vagaPcd);
+				estacionamento.registrarVagaPcdTxt(vagaPcd);
             } else {
                 System.out.println("Nome de Vaga ja existente\n");
             }
@@ -100,7 +97,7 @@ public class Main {
             VagaVip vagaVip = new VagaVip(numeroVaga);
             if(estacionamento.cadastrarVaga(vagaVip)){
                 System.out.println("Cadastrada com sucesso\n");
-				estacionamento.registrarNovaVagaVIp(vagaVip);
+				estacionamento.registrarVagaVIpTxt(vagaVip);
             } else {
                 System.out.println("Nome de Vaga ja existente\n");
             }
@@ -110,7 +107,7 @@ public class Main {
             VagaDefault vagaDefault = new VagaDefault(numeroVaga);
             if(estacionamento.cadastrarVaga(vagaDefault)){
                 System.out.println("Cadastrada com sucesso\n");
-				estacionamento.registrarNovaVagaDefault(vagaDefault);
+				estacionamento.registrarVagaDefaultTxt(vagaDefault);
             } else {
                 System.out.println("Nome de Vaga ja existente\n");
             }

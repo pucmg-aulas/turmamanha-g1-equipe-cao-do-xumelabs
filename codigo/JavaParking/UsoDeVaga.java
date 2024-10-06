@@ -83,4 +83,5 @@ public Veiculo getVeiculo() {
 public Vaga getVaga() {
 	return this.vaga;
 }
+
 }
