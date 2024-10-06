@@ -178,7 +178,8 @@ public class Main {
 			teclado.nextLine();
 		}
 		String placa = teclado.nextLine();
-		if(estacionamento.possuiPlaca(placa)){
+		for ( Cliente cliente : estacionamento.ListaDeClientes()){
+		if(placa == cliente.acharCarro(placa).getPlaca()){
 			System.out.println(MenuDeTipoDeVaga());
 			int i = teclado.nextInt();
 			switch (i) {
@@ -214,7 +215,7 @@ public class Main {
 		}else{
 			System.out.println("Carro nao encontrado");
 		}
-
+	}
 		
 		estacionamento.estacionar(null);
 	}
