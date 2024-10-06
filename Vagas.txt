@@ -7,3 +7,18 @@ Tipo da vaga Default
 -------------------------------------
 Numero da Vaga a12
 Tipo da vaga Default
+-------------------------------------
+Numero da Vaga as12
+Tipo da vaga Default
+-------------------------------------
+Numero da Vaga a2
+Tipo da vaga Default
+-------------------------------------
+Numero da Vaga a2
+Tipo da vaga Default
+-------------------------------------
+Numero da Vaga a2
+Tipo da vaga Default
+-------------------------------------
+Numero da Vaga a12
+Tipo da vaga Default

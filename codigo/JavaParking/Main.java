@@ -36,12 +36,13 @@ public class Main {
 					break;
 
 				case 5:
-					
+					desocuparVaga(teclado, e1);
 					break;
+
 				default:
 					break;
 			}
-		}while(opcao != 5);
+		}while(opcao != 6);
 
         
 
@@ -172,15 +173,21 @@ public class Main {
 			teclado.nextLine();
 		}
 		String placa = teclado.nextLine();
-		if(estacionamento.possuiPlaca(placa)){
-			UsoDeVaga usoDeVaga = new UsoDeVaga(null, null);
-		}else{
-			System.out.println("Carro nao encontrado");
+		boolean carraEncontrado = false;
+		for(Cliente cliente : estacionamento.ListaDeClientes()){
+			if (placa == cliente.acharCarro(placa).getPlaca()){
+		System.out.println("Digite o número da vaga ocupada: ");
+		String numeroVaga = teclado.nextLine();
+		for(Vaga vaga : estacionamento.ListaDeVagas()){
+			if (numeroVaga == vaga.getNumeroVaga()){
+				 Vaga vagaOcupada = vaga;
+				 UsoDeVaga usoDeVaga1 = new UsoDeVaga(cliente.acharCarro(placa), vagaOcupada);
+				 estacionamento.estacionar(usoDeVaga1);
+			}
 		}
-
-		
-		estacionamento.estacionar(null);
+		}
 	}
+}
 
 	private static void desocuparVaga(Scanner teclado, Estacionamento estacionamento){
 		System.out.println("Digite a placa do carro: ");

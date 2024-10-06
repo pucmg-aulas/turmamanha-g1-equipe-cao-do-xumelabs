@@ -59,6 +59,7 @@ public double sairDaVaga(UsoDeVaga usoDeVaga){
 	usoDeVaga.desocuparVaga();
 	registarNovoUsodeVaga();
 	return usoDeVaga.calcularCobranca();
+	
 }
 
 public void cadastrarCliente(Cliente cliente){
@@ -75,6 +76,10 @@ public List<Cliente> ListaDeClientes(){
 	return this.clientes;
 }
 
+public List<Vaga> ListaDeVagas(){
+	return this.vagas;
+}
+
 public void registarNovoCliente(){
 	String nomeAquivo = "Clientes.txt";
 
@@ -85,8 +90,8 @@ public void registarNovoCliente(){
 		escritor.write("Cliente nome " + cliente.getNome() +"\nIdentificador " + cliente.getIdentificador() + " ");
 		escritor.newLine();
 		for(String placa : cliente.getPlacaDeVeiculos()){
-			escritor.write("veículo placa " + placa);
-			escritor.newLine();
+		escritor.write("veículo placa " + placa);
+		escritor.newLine();
 		}}
 		escritor.newLine();
 	} catch (IOException e){
