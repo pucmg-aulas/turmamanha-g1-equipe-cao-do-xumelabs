@@ -1,5 +1,0 @@
--------------------------------------
-Cliente nome ata
-Identificador 1 
-veículo placa 123
-
