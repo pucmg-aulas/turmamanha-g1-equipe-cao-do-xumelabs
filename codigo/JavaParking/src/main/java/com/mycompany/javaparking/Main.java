@@ -82,7 +82,7 @@ public class Main {
                 VagaIdoso vagaIdoso = new VagaIdoso(numeroVaga);
                 if (estacionamento.cadastrarVaga(vagaIdoso)) {
                     System.out.println("Cadastrada com sucesso\n");
-                    estacionamento.registrarNovaVagaIdoso(vagaIdoso);
+                    estacionamento.registrarVagaIdosoTxt(vagaIdoso);
                 } else {
                     System.out.println("Nome de Vaga ja existente\n");
                 }
@@ -92,7 +92,7 @@ public class Main {
                 VagaPcd vagaPcd = new VagaPcd(numeroVaga);
                 if (estacionamento.cadastrarVaga(vagaPcd)) {
                     System.out.println("Cadastrada com sucesso\n");
-                    estacionamento.registrarNovaVagaPcd(vagaPcd);
+                    estacionamento.registrarVagaPcdTxt(vagaPcd);
                 } else {
                     System.out.println("Nome de Vaga ja existente\n");
                 }
@@ -102,7 +102,7 @@ public class Main {
                 VagaVip vagaVip = new VagaVip(numeroVaga);
                 if (estacionamento.cadastrarVaga(vagaVip)) {
                     System.out.println("Cadastrada com sucesso\n");
-                    estacionamento.registrarNovaVagaVIp(vagaVip);
+                    estacionamento.registrarVagaVIpTxt(vagaVip);
                 } else {
                     System.out.println("Nome de Vaga ja existente\n");
                 }
@@ -112,7 +112,7 @@ public class Main {
                 VagaDefault vagaDefault = new VagaDefault(numeroVaga);
                 if (estacionamento.cadastrarVaga(vagaDefault)) {
                     System.out.println("Cadastrada com sucesso\n");
-                    estacionamento.registrarNovaVagaDefault(vagaDefault);
+                    estacionamento.registrarVagaDefaultTxt(vagaDefault);
                 } else {
                     System.out.println("Nome de Vaga ja existente\n");
                 }
@@ -135,7 +135,8 @@ public class Main {
         if (i == 1) {
             if (teclado.hasNextLine()) {
                 teclado.nextLine();  // Limpa a quebra de linha pendente
-            }
+        }
+            System.out.println("Digite o nome: ");
             String nome = teclado.nextLine();
             Cliente cliente = new Cliente(nome);
             estacionamento.cadastrarCliente(cliente);
@@ -177,6 +178,12 @@ public class Main {
     private static void estacionarCarro(Scanner teclado, Estacionamento estacionamento) {
         Veiculo carroUsado = new Veiculo("123");
         String numeroVagaOcupada;
+        int id;
+        Cliente clienteEstacionado = new Cliente();
+        boolean achou = false;
+
+        System.out.println("Digite o ID do cliente: ");
+        id = teclado.nextInt();
 
         System.out.println("Digite a placa do carro: ");
         if (teclado.hasNext()) {
@@ -186,10 +193,19 @@ public class Main {
 
         //percorre o array de clientes
         for (Cliente cliente : estacionamento.ListaDeClientes()) {
-            //verifica se a placa digitada existe
-            if (cliente.acharCarro(placa).getPlaca().equals(placa)) {
-                carroUsado.setPlaca(placa);
+            if(cliente.getIdentificador() == id){
+                clienteEstacionado = cliente;
+                achou = true;
             }
+        }
+
+        if(!achou){
+            System.out.println("Nenhum cliente encontrado");
+            System.exit(0);
+        }
+            //verifica se a placa digitada existe
+        if (clienteEstacionado.acharCarro(placa).getPlaca().equals(placa)) {
+            carroUsado.setPlaca(placa);
         }
 
         System.out.println("Digite a vaga ocupada: ");

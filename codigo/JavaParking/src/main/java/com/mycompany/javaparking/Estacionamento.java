@@ -57,13 +57,13 @@ public class Estacionamento {
 // Passando o valor a ser pago pelo uso 
     public double sairDaVaga(UsoDeVaga usoDeVaga) {
         usoDeVaga.desocuparVaga();
-        registarNovoUsodeVaga();
+        registarUsodeVagaTxt();
         return usoDeVaga.calcularCobranca();
     }
 
     public void cadastrarCliente(Cliente cliente) {
         this.clientes.add(cliente);
-        registarNovoCliente();
+        registarClienteTxt();
     }
 
     public List<UsoDeVaga> ListaDeUsoDeVagas() {
@@ -78,7 +78,7 @@ public class Estacionamento {
         return this.vagas;
     }
 
-    public void registarNovoCliente() {
+    public void registarClienteTxt() {
         String nomeAquivo = "Clientes.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, false))) {
@@ -99,7 +99,7 @@ public class Estacionamento {
 
     }
 
-    public void registarNovoUsodeVaga() {
+    public void registarUsodeVagaTxt() {
         String nomeAquivo = "UsoDeVaga.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, false))) {
@@ -108,7 +108,7 @@ public class Estacionamento {
                 escritor.newLine();
                 escritor.write("Veiculo " + usoDeVaga.getVeiculo().getPlaca() + "\nVaga " + usoDeVaga.getVaga().getNumeroVaga() + " ");
                 escritor.newLine();
-                escritor.write("Tempo estacionado " + usoDeVaga.calcularTempoUsado());
+                escritor.write("Tempo estacionado " + usoDeVaga.calcularTempoUsado() + " minutos");
                 escritor.newLine();
                 escritor.write("Valor cobrado " + usoDeVaga.calcularCobranca());
                 escritor.newLine();
@@ -120,7 +120,7 @@ public class Estacionamento {
 
     }
 
-    public void registrarNovaVagaVIp(Vaga vaga) {
+    public void registrarVagaVIpTxt(Vaga vaga) {
         String nomeAquivo = "Vagas.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
@@ -133,7 +133,7 @@ public class Estacionamento {
         }
     }
 
-    public void registrarNovaVagaIdoso(Vaga vaga) {
+    public void registrarVagaIdosoTxt(Vaga vaga) {
         String nomeAquivo = "Vagas.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
@@ -146,7 +146,7 @@ public class Estacionamento {
         }
     }
 
-    public void registrarNovaVagaPcd(Vaga vaga) {
+    public void registrarVagaPcdTxt(Vaga vaga) {
         String nomeAquivo = "Vagas.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
@@ -160,7 +160,7 @@ public class Estacionamento {
         }
     }
 
-    public void registrarNovaVagaDefault(Vaga vaga) {
+    public void registrarVagaDefaultTxt(Vaga vaga) {
         String nomeAquivo = "Vagas.txt";
 
         try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
