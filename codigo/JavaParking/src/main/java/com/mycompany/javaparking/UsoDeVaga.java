@@ -46,7 +46,7 @@ public class UsoDeVaga {
     public boolean desocuparVaga() {
         if (this.vaga.isOcupada()) {
             this.vaga.alterarDisponibilidade(false);
-            this.horaSaida = LocalDateTime.now();
+            this.horaSaida = LocalDateTime.of(2024, 10, 07, 9, 45, 35);
             return true;
         } else {
             return false;

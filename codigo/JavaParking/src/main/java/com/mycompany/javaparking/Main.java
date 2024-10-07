@@ -231,6 +231,7 @@ public class Main {
         for (UsoDeVaga usoDeVaga : estacionamento.ListaDeUsoDeVagas()) {
             if (usoDeVaga.getVeiculo().getPlaca().equals(placa)) {
                 estacionamento.sairDaVaga(usoDeVaga);
+                System.out.println("Valor Final: " + usoDeVaga.calcularCobranca());
                 System.out.println("Vaga desocupada");
                 usoDeVagaEncontrado = true;
                 break;
