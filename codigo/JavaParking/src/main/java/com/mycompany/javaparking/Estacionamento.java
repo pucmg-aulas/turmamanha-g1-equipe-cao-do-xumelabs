@@ -9,6 +9,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Estacionamento {
 
@@ -21,32 +22,39 @@ public class Estacionamento {
     public Estacionamento(int numeroDeVagas) {
         this.numeroDeVagas = numeroDeVagas;
         this.vagas = new ArrayList<>(numeroDeVagas);
+        cadastrarVagas();
         this.usoDeVagas = new ArrayList<>();
         this.clientes = new ArrayList<>();
 
     }
 
 // Método para o cadastro de uma nova vaga no estacionamento 
-    public boolean cadastrarVaga(Vaga vaga) {
-        if (this.validarVaga(vaga) && this.vagas.size() < numeroDeVagas) {
-            this.vagas.add(vaga);
-            return true;
-        } else {
-            return false;
+
+private void cadastrarVagas() {
+    String numeroVaga;
+    Random random = new Random();
+
+    for (int i = 0; i < this.numeroDeVagas; i++) {
+        numeroVaga = String.format("A%02d", i + 1);
+        int tipoVaga = random.nextInt(4); 
+
+        switch (tipoVaga) {
+            case 0:
+                this.vagas.add(new VagaIdoso(numeroVaga));
+                break;
+            case 1:
+                this.vagas.add(new VagaPcd(numeroVaga));
+                break;
+            case 2:
+                this.vagas.add(new VagaVip(numeroVaga));
+                break;
+            case 3:
+                this.vagas.add(new VagaDefault(numeroVaga));
+                break;
         }
     }
+}
 
-//Confere se o nome da vaga nova já existe, caso exista ela nao pode ser cadastrada novamente
-    private boolean validarVaga(Vaga vaga) {
-        boolean resposta = true;
-
-        for (int i = 0; i < vagas.size(); i++) {
-            if (vaga.getNumeroVaga().equals(vagas.get(i).getNumeroVaga())) {
-                resposta = false;
-            }
-        }
-        return resposta;
-    }
 
 // Inícia o uso de vaga 
     public void estacionar(UsoDeVaga usoDeVaga) {
