@@ -251,7 +251,11 @@ public class Main {
                 + "2. Vaga para PCD (Pessoa com Deficiência)\n"
                 + "3. Vaga VIP\n"
                 + "4. Vaga Normal\n\n"
-                + "Digite a opção desejada: ";
+                + "Digite a opção desejada:dshkjfhsd"
+                + "fsd"
+                + "fs"
+                + "fsdfs  ";
+
 
     }
 }
