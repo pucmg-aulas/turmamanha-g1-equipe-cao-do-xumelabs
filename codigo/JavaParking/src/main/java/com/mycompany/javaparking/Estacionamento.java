@@ -32,25 +32,24 @@ public class Estacionamento {
 
 private void cadastrarVagas() {
     String numeroVaga;
-    Random random = new Random();
+    int vagasPorTipo = this.numeroDeVagas / 4;  // Número de vagas para cada tipo
+    int contadorIdoso = 0, contadorPcd = 0, contadorVip = 0;
 
     for (int i = 0; i < this.numeroDeVagas; i++) {
         numeroVaga = String.format("A%02d", i + 1);
-        int tipoVaga = random.nextInt(4); 
 
-        switch (tipoVaga) {
-            case 0:
-                this.vagas.add(new VagaIdoso(numeroVaga));
-                break;
-            case 1:
-                this.vagas.add(new VagaPcd(numeroVaga));
-                break;
-            case 2:
-                this.vagas.add(new VagaVip(numeroVaga));
-                break;
-            case 3:
-                this.vagas.add(new VagaDefault(numeroVaga));
-                break;
+        if (contadorIdoso < vagasPorTipo) {
+            this.vagas.add(new VagaIdoso(numeroVaga));
+            contadorIdoso++;
+        } else if (contadorPcd < vagasPorTipo) {
+            this.vagas.add(new VagaPcd(numeroVaga));
+            contadorPcd++;
+        } else if (contadorVip < vagasPorTipo) {
+            this.vagas.add(new VagaVip(numeroVaga));
+            contadorVip++;
+        } else {
+            // Adicionar o restante como VagaDefault
+            this.vagas.add(new VagaDefault(numeroVaga));
         }
     }
 }

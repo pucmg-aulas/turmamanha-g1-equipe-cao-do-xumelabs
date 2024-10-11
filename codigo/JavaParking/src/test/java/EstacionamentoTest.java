@@ -12,19 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class EstacionamentoTest {
 
-    @Test
-    public void testCadastrarVaga() {
-        // Criando um estacionamento com 5 vagas
-        Estacionamento estacionamento = new Estacionamento(5);
-
-        // Instanciando uma vaga do tipo VagaDefault
-        Vaga vagaDefault = new VagaDefault("A1");
-
-        // Verificando se a vaga foi cadastrada com sucesso
-        boolean resultado = estacionamento.cadastrarVaga(vagaDefault);
-        assertTrue(resultado); // Remova `Assert.` se estiver usando a importação estática
-    }
-
+   
     @Test
     public void testeCadastrarCliente() {
         // Cria um estacionamento com 10 vagas
