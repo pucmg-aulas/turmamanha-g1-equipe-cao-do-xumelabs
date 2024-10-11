@@ -26,15 +26,6 @@ public class VagaDAO {
         vagas.remove(vaga);
     }
 
-    public boolean isOcupada(Vaga vaga){
-        for(Vaga v : vagas){
-            if(v.equals(vaga)){
-                return v.isOcupada();
-            }
-        }
-        return false;
-    }
-
     public void atualizarVaga(Vaga vagaAntiga, Vaga vagaNova){
         for(Vaga v : vagas){
             if(v.equals(vagaAntiga)){
@@ -43,7 +34,7 @@ public class VagaDAO {
         }
     }
 
-    public String numeroVaga(Vaga vaga){
+    public String encontrarVagaPorNumero(Vaga vaga){
         for(Vaga v : vagas){
             if(v.equals(vaga)){
                 return v.getNumeroVaga();
