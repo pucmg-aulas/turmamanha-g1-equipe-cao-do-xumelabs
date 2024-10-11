@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import org.junit.jupiter.api.Test;
 
-import com.mycompany.javaparking.Veiculo;
+import mvc.model.Veiculo;
 
 public class VeiculoTest {
 

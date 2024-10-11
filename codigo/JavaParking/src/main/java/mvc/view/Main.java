@@ -2,7 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.javaparking;
+package mvc.view;
+import mvc.model.Cliente;
+import mvc.model.Estacionamento;
+import mvc.model.UsoDeVaga;
+import mvc.model.Vaga;
+import mvc.model.VagaDefault;
+import mvc.model.VagaIdoso;
+import mvc.model.VagaPcd;
+import mvc.model.VagaVip;
+import mvc.model.Veiculo;
 
 import java.util.ArrayList;
 import java.util.Scanner;

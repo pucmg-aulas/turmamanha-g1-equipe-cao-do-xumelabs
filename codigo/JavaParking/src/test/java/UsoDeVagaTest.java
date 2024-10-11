@@ -6,10 +6,10 @@
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.junit.jupiter.api.Test;
 
-import com.mycompany.javaparking.UsoDeVaga;
-import com.mycompany.javaparking.Vaga;
-import com.mycompany.javaparking.VagaDefault;
-import com.mycompany.javaparking.Veiculo;
+import mvc.model.UsoDeVaga;
+import mvc.model.Vaga;
+import mvc.model.VagaDefault;
+import mvc.model.Veiculo;
 
 /**
  *

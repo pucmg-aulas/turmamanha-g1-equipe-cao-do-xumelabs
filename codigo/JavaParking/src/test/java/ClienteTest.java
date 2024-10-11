@@ -2,9 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
-import com.mycompany.javaparking.Cliente;
-import com.mycompany.javaparking.Estacionamento;
-import com.mycompany.javaparking.Veiculo;
+import mvc.model.Cliente;
+import mvc.model.Estacionamento;
+import mvc.model.Veiculo;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

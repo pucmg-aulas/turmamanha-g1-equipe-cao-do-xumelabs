@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 
-import com.mycompany.javaparking.VagaIdoso;
+import mvc.model.VagaIdoso;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 

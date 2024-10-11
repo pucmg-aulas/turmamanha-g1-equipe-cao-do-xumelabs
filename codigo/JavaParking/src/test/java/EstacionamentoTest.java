@@ -3,10 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/UnitTests/JUnit5TestClass.java to edit this template
  */
 
-import com.mycompany.javaparking.Cliente;
-import com.mycompany.javaparking.Estacionamento;
-import com.mycompany.javaparking.Vaga;
-import com.mycompany.javaparking.VagaDefault;
+import mvc.model.Cliente;
+import mvc.model.Estacionamento;
+import mvc.model.Vaga;
+import mvc.model.VagaDefault;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
