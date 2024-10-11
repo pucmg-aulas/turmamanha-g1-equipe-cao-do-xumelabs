@@ -4,14 +4,55 @@
  */
 package com.mycompany.javaparking;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        Estacionamento e1 = new Estacionamento(22);
-        int opcao = 0;
+        ArrayList<Estacionamento> estacionamento = new ArrayList<>();
+        int opcao = 0, op = 0;
+
+        System.out.println("====================================");
+        System.out.println(" Bem-vindo ao Sistema de Estacionamento ");
+        System.out.println("====================================\n");
+
+        System.out.print("Digite a quantidade de vagas para cada estacionamento: ");
+        int quantidadeDeVagas = teclado.nextInt();
+
+        do {
+            menuInicial();
+            op = teclado.nextInt();
+
+            if (op == 1) {
+                Estacionamento e = new Estacionamento(quantidadeDeVagas);
+                estacionamento.add(e);
+                System.out.println("\n====================================");
+                System.out.println(" Estacionamento cadastrado com sucesso! ");
+                System.out.println("====================================\n");
+            } else if (op != 2) {
+                System.out.println("\n====================================");
+                System.out.println(" Opção inválida, tente novamente.");
+                System.out.println("====================================\n");
+            }
+
+        } while (op != 2);
+
+        System.out.println("\n====================================");
+        System.out.println(" Escolha o estacionamento para usar ");
+        System.out.println("====================================\n");
+
+        for (int i = 0; i < estacionamento.size(); i++) {
+            System.out.println((i + 1) + " - Estacionamento " + (i + 1));
+        }
+
+        System.out.print("\nDigite o número do estacionamento que deseja usar: ");
+        int estacionamentoDesejado = teclado.nextInt();
+
+        System.out.println("\n====================================");
+        System.out.println(" Você escolheu o Estacionamento " + estacionamentoDesejado);
+        System.out.println("====================================\n");
 
         do {
             System.out.println(Menu());
@@ -19,23 +60,23 @@ public class Main {
 
             switch (opcao) {
                 case 1:
-                    cadastrarVaga(teclado, e1);
+                    cadastrarVaga(teclado, estacionamento.get(estacionamentoDesejado - 1));
                     break;
 
                 case 2:
-                    cadastrarCliente(teclado, e1);
+                    cadastrarCliente(teclado, estacionamento.get(estacionamentoDesejado - 1));
                     break;
 
                 case 3:
-                    cadastarVeiculo(teclado, e1);
+                    cadastarVeiculo(teclado, estacionamento.get(estacionamentoDesejado - 1));
                     break;
 
                 case 4:
-                    estacionarCarro(teclado, e1);
+                    estacionarCarro(teclado, estacionamento.get(estacionamentoDesejado - 1));
                     break;
 
                 case 5:
-                    desocuparVaga(teclado, e1);
+                    desocuparVaga(teclado, estacionamento.get(estacionamentoDesejado - 1));
                     break;
 
                 case 6:
@@ -211,7 +252,14 @@ public class Main {
                 + "fsd"
                 + "fs"
                 + "fsdfs  ";
+    }
 
-
+    private static void menuInicial(){
+        System.out.println("====================================");
+        System.out.println(" Deseja cadastrar um estacionamento?");
+        System.out.println("====================================");
+        System.out.println(" 1 - Sim");
+        System.out.println(" 2 - Não");
+        System.out.print("Digite a opção desejada: ");
     }
 }
