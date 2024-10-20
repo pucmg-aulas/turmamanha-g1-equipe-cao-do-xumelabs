@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package mvc.model;
 
 import java.util.ArrayList;
@@ -43,11 +39,8 @@ public class Cliente {
     // Método para adicionar um novo carro ao cliente
     public void cadastrarVeiculo(Veiculo veiculo, Estacionamento estacionamento) {
         this.veiculos.add(veiculo);
-        estacionamento.registarClienteTxt();
-
     }
 
-    // Método para retornar e imprimir as placas dos veículos do cliente
     public List<String> getPlacaDeVeiculos() {
         List<String> placas = new ArrayList<>(); // Cria uma lista para armazenar as placas
 

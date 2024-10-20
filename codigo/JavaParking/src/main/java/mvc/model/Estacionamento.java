@@ -64,13 +64,11 @@ private void cadastrarVagas() {
 // Passando o valor a ser pago pelo uso 
     public double sairDaVaga(UsoDeVaga usoDeVaga) {
         usoDeVaga.desocuparVaga();
-        registarUsodeVagaTxt();
         return usoDeVaga.calcularCobranca();
     }
 
     public void cadastrarCliente(Cliente cliente) {
         this.clientes.add(cliente);
-        registarClienteTxt();
     }
 
     public List<UsoDeVaga> ListaDeUsoDeVagas() {
@@ -85,98 +83,4 @@ private void cadastrarVagas() {
         return this.vagas;
     }
 
-    public void registarClienteTxt() {
-        String nomeAquivo = "Clientes.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, false))) {
-            for (Cliente cliente : clientes) {
-                escritor.write("-------------------------------------");
-                escritor.newLine();
-                escritor.write("Cliente nome " + cliente.getNome() + "\nIdentificador " + cliente.getIdentificador() + " ");
-                escritor.newLine();
-                for (String placa : cliente.getPlacaDeVeiculos()) {
-                    escritor.write("veículo placa " + placa);
-                    escritor.newLine();
-                }
-            }
-            escritor.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void registarUsodeVagaTxt() {
-        String nomeAquivo = "UsoDeVaga.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, false))) {
-            for (UsoDeVaga usoDeVaga : usoDeVagas) {
-                escritor.write("-------------------------------------");
-                escritor.newLine();
-                escritor.write("Veiculo " + usoDeVaga.getVeiculo().getPlaca() + "\nVaga " + usoDeVaga.getVaga().getNumeroVaga() + " ");
-                escritor.newLine();
-                escritor.write("Tempo estacionado " + usoDeVaga.calcularTempoUsado() + " minutos");
-                escritor.newLine();
-                escritor.write("Valor cobrado " + usoDeVaga.calcularCobranca());
-                escritor.newLine();
-            }
-            escritor.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    public void registrarVagaVIpTxt(Vaga vaga) {
-        String nomeAquivo = "Vagas.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
-            escritor.write("-------------------------------------");
-            escritor.newLine();
-            escritor.write("Numero da Vaga " + vaga.getNumeroVaga() + "\nTipo da vaga Vip");
-            escritor.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void registrarVagaIdosoTxt(Vaga vaga) {
-        String nomeAquivo = "Vagas.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
-            escritor.write("-------------------------------------");
-            escritor.newLine();
-            escritor.write("Numero da Vaga " + vaga.getNumeroVaga() + "\nTipo da vaga Idoso");
-            escritor.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void registrarVagaPcdTxt(Vaga vaga) {
-        String nomeAquivo = "Vagas.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
-            escritor.write("-------------------------------------");
-            escritor.newLine();
-            escritor.write("Numero da Vaga " + vaga.getNumeroVaga() + "\nTipo da vaga Pcd");
-            escritor.newLine();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void registrarVagaDefaultTxt(Vaga vaga) {
-        String nomeAquivo = "Vagas.txt";
-
-        try (BufferedWriter escritor = new BufferedWriter(new FileWriter(nomeAquivo, true))) {
-            escritor.write("-------------------------------------");
-            escritor.newLine();
-            escritor.write("Numero da Vaga " + vaga.getNumeroVaga() + "\nTipo da vaga Default");
-            escritor.newLine();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
 }
