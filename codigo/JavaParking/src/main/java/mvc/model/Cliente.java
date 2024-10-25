@@ -28,6 +28,10 @@ public class Cliente {
         this.veiculos = new ArrayList<>();
     }
 
+    public void setIdentificador(int Id){
+        this.identificador = Id;
+    }
+
     public String getNome() {
         return this.nome;
     }
@@ -50,4 +54,6 @@ public class Cliente {
 
         return placas; // Retorna a lista de placas
     }
+
+
 }

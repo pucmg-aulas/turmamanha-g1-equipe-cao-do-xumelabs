@@ -7,9 +7,11 @@ package mvc.model;
 public class Veiculo {
 
     private String placa;
+    private int IdCliente;
 
-    public Veiculo(String placa) {
+    public Veiculo(String placa, int IdCliente) {
         this.placa = placa;
+        this.IdCliente = IdCliente;
     }
 
     public String getPlaca() {
@@ -18,6 +20,10 @@ public class Veiculo {
 
     public void setPlaca(String placa) {
         this.placa = placa;
+    }
+
+    public int getIdCliente(){
+        return this.IdCliente;
     }
 
 }
