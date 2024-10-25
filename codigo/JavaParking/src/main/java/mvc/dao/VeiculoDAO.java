@@ -7,11 +7,11 @@ import mvc.model.Veiculo;
 public class VeiculoDAO {
     private ArrayList<Veiculo> veiculos;
     private static VeiculoDAO instance;
-    private final String filePath = "veiculos.txt"; // Caminho do arquivo onde os veículos serão salvos
+    private final String filePath = "veiculos.txt"; 
 
     private VeiculoDAO() {
         this.veiculos = new ArrayList<>();
-        carregarVeiculos(); // Carregar veículos do arquivo ao iniciar
+        carregarVeiculos(); 
     }
 
     public static VeiculoDAO getInstance() {
@@ -23,17 +23,26 @@ public class VeiculoDAO {
 
     public void cadastrarVeiculo(Veiculo veiculo) {
         veiculos.add(veiculo);
-        salvarVeiculos(); // Salvar veículos após cadastro
+        salvarVeiculos(); 
     }
 
     public void removerVeiculo(Veiculo veiculo) {
         veiculos.remove(veiculo);
-        salvarVeiculos(); // Salvar veículos após remoção
+        salvarVeiculos(); 
     }
 
-    public Veiculo pesquisarVeiculo(String placa) {
-        for (Veiculo veiculo : veiculos) {
-            if (veiculo.getPlaca().equals(placa)) {
+    public Veiculo pesquisarVeiculoPlaca(String placa) {
+        for(Veiculo veiculo : veiculos){
+            if(veiculo.getPlaca().equals(placa)){
+                return veiculo;
+            }
+        }
+        return null; 
+    }
+
+    public Veiculo pesquisarVeiculoId(int idCliente) {
+        for(Veiculo veiculo : veiculos){
+            if(veiculo.getIdCliente() == idCliente){
                 return veiculo;
             }
         }
@@ -43,14 +52,14 @@ public class VeiculoDAO {
     private void salvarVeiculos() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             for (Veiculo veiculo : veiculos) {
-                writer.write(veiculo.getPlaca() + ";" + veiculo.getIdCliente());
+                writer.write(veiculo.getIdCliente() + ";" + veiculo.getPlaca());
                 writer.newLine();
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
+    
     private void carregarVeiculos() {
         File file = new File(filePath);
         if (file.exists()) {
@@ -59,8 +68,8 @@ public class VeiculoDAO {
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(";");
                     if (parts.length == 2) {
-                        String placa = parts[0];
-                        int idCliente = Integer.parseInt(parts[1]);
+                        int idCliente = Integer.parseInt(parts[0]);
+                        String placa = parts[1];
                         veiculos.add(new Veiculo(placa, idCliente));
                     }
                 }
