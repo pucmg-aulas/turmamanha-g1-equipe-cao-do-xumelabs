@@ -28,8 +28,6 @@ public class Estacionamento {
 
     }
 
-// Método para o cadastro de uma nova vaga no estacionamento 
-
 private void cadastrarVagas() {
     String numeroVaga;
     int vagasPorTipo = this.numeroDeVagas / 4;  // Número de vagas para cada tipo
@@ -48,20 +46,17 @@ private void cadastrarVagas() {
             this.vagas.add(new VagaVip(numeroVaga));
             contadorVip++;
         } else {
-            // Adicionar o restante como VagaDefault
             this.vagas.add(new VagaDefault(numeroVaga));
         }
     }
 }
 
 
-// Inícia o uso de vaga 
     public void estacionar(UsoDeVaga usoDeVaga) {
         this.usoDeVagas.add(usoDeVaga);
+        usoDeVaga.ocuparVaga();
     }
 
-// Aciona o desocupar vaga e encerra o uso de vaga
-// Passando o valor a ser pago pelo uso 
     public double sairDaVaga(UsoDeVaga usoDeVaga) {
         usoDeVaga.desocuparVaga();
         return usoDeVaga.calcularCobranca();

@@ -20,7 +20,7 @@ public class ClienteTest {
     @Test
     public void testCadastrarVeiculo() {
         Cliente c1 = new Cliente("João");
-        Veiculo v1 = new Veiculo("ABC123");
+        Veiculo v1 = new Veiculo("ABC123", 2);
         Estacionamento estacionamento = new Estacionamento(1);
 
         c1.cadastrarVeiculo(v1, estacionamento);

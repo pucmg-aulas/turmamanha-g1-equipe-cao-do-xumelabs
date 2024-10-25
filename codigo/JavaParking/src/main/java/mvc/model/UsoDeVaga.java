@@ -6,17 +6,23 @@
 
     import java.time.Duration;
     import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.LocalDate;
 
     public class UsoDeVaga {
 
         private Veiculo veiculo;
         private Vaga vaga;
         private LocalDateTime horaChegada;
+        private LocalDate data;
         private LocalDateTime horaSaida;
         private Duration tempoUsado;
+        private double valorAPagar;
         private static final int maxCobranca;
         private static final int valorFracao;
         private static final int tempoFracao;
+
+        private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
         static {
             maxCobranca = 50;
@@ -30,22 +36,21 @@
             this.vaga = vaga;
         }
 
-    // Método para iniciar a ocupação de vaga 
         public boolean ocuparVaga() {
             if (this.vaga.isOcupada() == false) {
                 this.vaga.alterarDisponibilidade(true);
                 this.horaChegada = LocalDateTime.now();
+                this.data = LocalDate.now();
                 return true;
             } else {
                 return false;
             }
         }
 
-    // Método para desocupar a vaga e fechar a ocupação de vaga 
         public boolean desocuparVaga() {
             if (this.vaga.isOcupada()) {
                 this.vaga.alterarDisponibilidade(false);
-                this.horaSaida = LocalDateTime.of(2024, 10, 07, 9, 45, 35);
+                this.horaSaida = LocalDateTime.now();
                 return true;
             } else {
                 return false;
@@ -64,16 +69,30 @@
         }
 
         public double calcularCobranca() {
-            double valorTotal;
+            valorAPagar = (this.calcularTempoUsado() / tempoFracao) * valorFracao;
+            valorAPagar = valorAPagar * this.vaga.calcularAjuste();
 
-            valorTotal = (this.calcularTempoUsado() / tempoFracao) * valorFracao;
-            valorTotal = valorTotal * this.vaga.calcularAjuste();
-
-            if (valorTotal >= maxCobranca) {
-                valorTotal = maxCobranca;
+            if (valorAPagar >= maxCobranca) {
+                valorAPagar = maxCobranca;
             }
 
-            return valorTotal;
+            return valorAPagar;
+        }
+
+        public void setHoraChegada(LocalDateTime horaChegada){
+            this.horaChegada = horaChegada;
+        }
+
+        public void setHoraSaida(LocalDateTime horaSaida){
+            this.horaSaida = horaSaida;
+        }
+
+        public void setData(LocalDate data){
+            this.data = data;
+        }
+
+        public void setValorAPagar(double valor){
+            this.valorAPagar= valor;
         }
 
         public Veiculo getVeiculo() {
@@ -82,5 +101,17 @@
 
         public Vaga getVaga() {
             return this.vaga;
+        }
+
+        public String getHoraChegada(){
+            return this.horaChegada.format(timeFormatter);
+        }
+        
+        public String getHoraSaida(){
+            return this.horaSaida.format(timeFormatter);
+        }
+
+        public LocalDate getData(){
+            return this.data;
         }
     }

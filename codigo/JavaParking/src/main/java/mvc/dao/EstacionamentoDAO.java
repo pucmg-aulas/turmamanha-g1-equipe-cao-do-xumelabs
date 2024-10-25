@@ -7,7 +7,7 @@ import mvc.model.UsoDeVaga;
 
 public class EstacionamentoDAO {
 
-     private ArrayList<Estacionamento> estacionamentos;
+    private ArrayList<Estacionamento> estacionamentos;
     private static EstacionamentoDAO instance;
     
     private EstacionamentoDAO(){

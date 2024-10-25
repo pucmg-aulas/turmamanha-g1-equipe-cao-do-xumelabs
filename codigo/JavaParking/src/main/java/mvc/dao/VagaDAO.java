@@ -12,7 +12,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 
 public class VagaDAO {
 
@@ -33,18 +32,18 @@ public class VagaDAO {
 
     public void cadastrarVaga(Vaga vaga){
         vagas.add(vaga);
-        salvarVagas();
+        registarTodasVagas();
     }
 
     public void removerVaga(Vaga vaga){
         vagas.remove(vaga);
-        salvarVagas();
+        registarTodasVagas();
     }
 
-    public String encontrarVagaPorNumero(Vaga vaga){
-        for(Vaga v : vagas){
-            if(v.equals(vaga)){
-                return v.getNumeroVaga();
+    public Vaga pesquisarVagaporNumero(String numeroVaga){
+        for(Vaga vaga : vagas){
+            if(vaga.getNumeroVaga().equals(numeroVaga)){
+                return vaga;
             }
         }
         return null;
@@ -63,7 +62,7 @@ public class VagaDAO {
         return 1;
     }
 
-    private void salvarVagas() {
+    private void registarTodasVagas() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePathVagas))) {
             for (Vaga vaga : vagas) {
                 String tipoVaga = "";

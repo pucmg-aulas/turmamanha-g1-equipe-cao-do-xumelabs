@@ -76,7 +76,6 @@ public class ClienteDAO {
                 writer.write(linha);
                 writer.newLine();
             }
-            System.out.println("Clientes atualizados com sucesso!");
         } catch (IOException e) {
             System.err.println("Erro ao registrar clientes: " + e.getMessage());
         }

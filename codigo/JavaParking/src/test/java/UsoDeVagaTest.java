@@ -20,7 +20,7 @@ public class UsoDeVagaTest {
     @Test
     public void testeOcuparVaga() {
         Vaga vaga = new VagaDefault("1"); // Substitua pela instância adequada
-        Veiculo veiculo = new Veiculo("ABC1234");
+        Veiculo veiculo = new Veiculo("ABC1234", 2);
         UsoDeVaga usoDeVaga = new UsoDeVaga(veiculo, vaga);
         // Verifica se a vaga foi ocupada
         assertEquals(true, vaga.isOcupada(), "A vaga deve estar ocupada após ser utilizada.");
@@ -29,7 +29,7 @@ public class UsoDeVagaTest {
     @Test
     public void testeDesocuparVaga() {
         Vaga vaga = new VagaDefault("1"); // Substitua pela instância adequada
-        Veiculo veiculo = new Veiculo("ABC1234");
+        Veiculo veiculo = new Veiculo("ABC1234", 2);
         UsoDeVaga usoDeVaga = new UsoDeVaga(veiculo, vaga);
         
         // Ocupar a vaga antes de desocupar

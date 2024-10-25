@@ -17,7 +17,7 @@ public class VeiculoTest {
 
     @Test
     public void testeGetPlaca() {
-        Veiculo veiculo = new Veiculo("ABC1234");
+        Veiculo veiculo = new Veiculo("ABC1234", 2);
         // Verifica se a placa do veículo está correta
         assertEquals("ABC1234", veiculo.getPlaca(), "A placa do veículo deve ser 'ABC1234'.");
     }
@@ -25,7 +25,7 @@ public class VeiculoTest {
     @Test
     public void testeRegistrarNovoVeiculo() {
         String placa = "XYZ5678";
-        Veiculo veiculo = new Veiculo(placa);
+        Veiculo veiculo = new Veiculo(placa, 2);
 
         // Verifica se o veículo foi registrado no arquivo
         String nomeArquivo = "veiculo.txt";
