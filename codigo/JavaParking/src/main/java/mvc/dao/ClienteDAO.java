@@ -1,14 +1,105 @@
 package mvc.dao;
 
 import mvc.model.Cliente;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Iterator;
+
+public class ClienteDAO extends AbstractDAO implements Serializable {
+
+    private List<Cliente> clientes;
+    private static ClienteDAO instance;
+    
+    // Caminho do arquivo de clientes serializados
+    private final String localArquivo = "./src/main/java/mvc/data/Clientes.dat";
+
+    // Construtor privado para implementar o padrão Singleton
+    private ClienteDAO() {
+        this.clientes = new ArrayList<>();
+        carregarClientes();
+    }
+
+    // Método para obter a instância única da classe
+    public static ClienteDAO getInstance() {
+        if (instance == null) {
+            instance = new ClienteDAO();
+        }
+        return instance;
+    }
+
+    // Método para adicionar um cliente
+    public void cadastrarCliente(Cliente cliente) {
+        clientes.add(cliente);
+        grava();
+    }
+
+    // Método para remover um cliente
+    public void removerCliente(Cliente cliente) {
+        clientes.remove(cliente);
+        grava();
+    }
+
+    // Método para buscar cliente por nome
+    public Cliente pesquisarClienteNome(String nome) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getNome().equals(nome)) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    // Método para buscar cliente por ID
+    public Cliente pesquisarClienteId(int id) {
+        for (Cliente cliente : clientes) {
+            if (cliente.getIdentificador() == id) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    // Retorna a lista de todos os clientes
+    public List<Cliente> listaDeClientes() {
+        return clientes;
+    }
+
+    // Método para atualizar um cliente
+    public void atualizarCliente(Cliente clienteAntigo, Cliente clienteNovo) {
+        for (int i = 0; i < clientes.size(); i++) {
+            if (clientes.get(i).getIdentificador() == clienteAntigo.getIdentificador()) {
+                clientes.set(i, clienteNovo);
+                break;
+            }
+        }
+        grava();
+    }
+
+    // Carrega os clientes a partir do arquivo serializado
+    private void carregarClientes() {
+        this.clientes = super.leitura(localArquivo);
+    }
+
+    // Grava os clientes no arquivo serializado
+    private void grava() {
+        super.grava(localArquivo, clientes);
+    }
+
+    /*
+     * package mvc.dao;
+
+import mvc.model.Cliente;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class ClienteDAO {
+public class ClienteDAO extends AbstractDAO implements Serializable {
     private ArrayList<Cliente> clientes;
     private static ClienteDAO instance;
 
@@ -99,4 +190,6 @@ public class ClienteDAO {
         }
     }
     
+} 
+     */
 }

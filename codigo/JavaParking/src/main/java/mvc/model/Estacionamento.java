@@ -14,18 +14,21 @@ import java.util.Random;
 public class Estacionamento {
 
     private List<Vaga> vagas;
+    private int numeroEstacionamento;
+    private static int proxNumeroEstacionameto = 1;
     private int numeroDeVagas;
     private List<UsoDeVaga> usoDeVagas;
     private List<Cliente> clientes;
 
 // Construtor para estacionamento 
     public Estacionamento(int numeroDeVagas) {
+        this.numeroEstacionamento = proxNumeroEstacionameto;
+        proxNumeroEstacionameto++;
         this.numeroDeVagas = numeroDeVagas;
         this.vagas = new ArrayList<>(numeroDeVagas);
         cadastrarVagas();
         this.usoDeVagas = new ArrayList<>();
         this.clientes = new ArrayList<>();
-
     }
 
 private void cadastrarVagas() {
@@ -62,10 +65,6 @@ private void cadastrarVagas() {
         return usoDeVaga.calcularCobranca();
     }
 
-    public void cadastrarCliente(Cliente cliente) {
-        this.clientes.add(cliente);
-    }
-
     public List<UsoDeVaga> ListaDeUsoDeVagas() {
         return this.usoDeVagas;
     }
@@ -76,6 +75,10 @@ private void cadastrarVagas() {
 
     public List<Vaga> ListaDeVagas() {
         return this.vagas;
+    }
+
+    public int getNumeroEstacionamento(){
+        return this.numeroEstacionamento;
     }
 
 }
