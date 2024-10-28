@@ -21,17 +21,14 @@ public class VeiculoDAO extends AbstractDAO<Veiculo> implements Serializable {
         return instance;
     }
 
-    // Método para cadastrar um novo veículo
     public void cadastrarVeiculo(Veiculo veiculo) {
-        cadastrar(veiculo);  // Chama o método da classe pai AbstractDAO
+        cadastrar(veiculo); 
     }
 
-    // Método para remover um veículo
     public void removerVeiculo(Veiculo veiculo) {
-        remover(veiculo);  // Chama o método da classe pai AbstractDAO
+        remover(veiculo); 
     }
 
-    // Método para pesquisar veículo por placa
     public Veiculo pesquisarVeiculoPorPlaca(String placa) {
         return listarTodos().stream()
                 .filter(veiculo -> veiculo.getPlaca().equals(placa))
@@ -50,7 +47,6 @@ public class VeiculoDAO extends AbstractDAO<Veiculo> implements Serializable {
         return listarTodos();  
     }
 
-    // Método para atualizar um veículo
     public void atualizarVeiculo(Veiculo veiculoAntigo, Veiculo veiculoNovo) {
         atualizar(veiculoAntigo, veiculoNovo); 
     }

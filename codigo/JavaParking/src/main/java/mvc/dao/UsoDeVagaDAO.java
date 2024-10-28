@@ -6,7 +6,6 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.YearMonth;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable {
@@ -25,24 +24,20 @@ public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable
         return instance;
     }
 
-    // Método para criar um novo uso de vaga
     public void criarUsoDeVaga(UsoDeVaga usoDeVaga) {
-        cadastrar(usoDeVaga);  // Chama o método da classe pai AbstractDAO
+        cadastrar(usoDeVaga); 
     }
 
-    // Método para listar todos os usos de vaga
     public List<UsoDeVaga> listarUsosDeVaga() {
-        return listarTodos();  // Chama o método da classe pai AbstractDAO
+        return listarTodos();  
     }
 
-    // Método para calcular o valor total arrecadado do estacionamento
     public double calcularValorTotalArrecadado() {
         return listarTodos().stream()
                 .mapToDouble(UsoDeVaga::calcularCobranca)
                 .sum();
     }
 
-    // Método para calcular o valor arrecadado em determinado mês
     public double calcularValorArrecadadoNoMes(YearMonth mes) {
         return listarTodos().stream()
                 .filter(uso -> YearMonth.from(uso.getData()).equals(mes))
@@ -50,7 +45,6 @@ public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable
                 .sum();
     }
 
-    // Método para calcular o valor médio de cada utilização do estacionamento
     public double calcularValorMedioPorUso() {
         return listarTodos().stream()
                 .mapToDouble(UsoDeVaga::calcularCobranca)
@@ -58,19 +52,17 @@ public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable
                 .orElse(0);
     }
 
-    // Método para listar todos os usos de vaga em um determinado período
     public List<UsoDeVaga> ListaDeUsoDeVagasPorData(LocalDate dataInicio, LocalDate dataFim) {
         return listarTodos().stream()
                 .filter(uso -> !uso.getData().isBefore(dataInicio) && !uso.getData().isAfter(dataFim))
                 .collect(Collectors.toList());
     }
 
-    // Método para atualizar um uso de vaga
     public void atualizarUsoDeVaga(UsoDeVaga usoAntigo, UsoDeVaga usoNovo) {
-        atualizar(usoAntigo, usoNovo);  // Chama o método da classe pai AbstractDAO
+        atualizar(usoAntigo, usoNovo); 
     }
 
     public void removerUsoDeVaga(UsoDeVaga usoDeVaga) {
-        remover(usoDeVaga);  // Chama o método da classe pai AbstractDAO
+        remover(usoDeVaga);  
     }
 }

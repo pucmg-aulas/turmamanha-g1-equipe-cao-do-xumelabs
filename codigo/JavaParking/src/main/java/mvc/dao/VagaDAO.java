@@ -20,17 +20,14 @@ public class VagaDAO extends AbstractDAO<Vaga> implements Serializable {
         return instance;
     }
 
-    // Método para cadastrar uma nova vaga
     public void cadastrarVaga(Vaga vaga) {
-        cadastrar(vaga);  // Chama o método da classe pai AbstractDAO
+        cadastrar(vaga);  
     }
 
-    // Método para remover uma vaga
     public void removerVaga(Vaga vaga) {
-        remover(vaga);  // Chama o método da classe pai AbstractDAO
+        remover(vaga);  
     }
 
-    // Método para pesquisar vaga por número
     public Vaga pesquisarVagaPorNumero(String numeroVaga) {
         return listarTodos().stream()
                 .filter(vaga -> vaga.getNumeroVaga().equals(numeroVaga))
@@ -38,13 +35,11 @@ public class VagaDAO extends AbstractDAO<Vaga> implements Serializable {
                 .orElse(null);
     }
 
-    // Método para listar todas as vagas
     public List<Vaga> listarVagas() {
-        return listarTodos();  // Chama o método da classe pai AbstractDAO
+        return listarTodos();  
     }
 
-    // Método para atualizar uma vaga
     public void atualizarVaga(Vaga vagaAntiga, Vaga vagaNova) {
-        atualizar(vagaAntiga, vagaNova);  // Chama o método da classe pai AbstractDAO
+        atualizar(vagaAntiga, vagaNova);  
     }
 }
