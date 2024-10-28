@@ -11,10 +11,22 @@ import javax.swing.JTextField;
  *
  * @author Pedro Henrique
  */
-public class cadastrarEstacionamentoView extends javax.swing.JFrame {
+public class CadastrarEstacionamentoView extends javax.swing.JFrame {
 
     public JTextField getTxtNumeroDeVagas(){
-        return numeroDeVagas;
+        return txtQuantidadeVagas;
+    }
+
+    public void setTxtNumeroDeVagas(JTextField txtQuantidadeVagas) {
+        this.txtQuantidadeVagas = txtQuantidadeVagas;
+    }
+    
+    public void setTxtNomeEstacionamento(JTextField txtNomeEstacionamento) {
+        this.txtNomeEstacionamento = txtNomeEstacionamento;
+    }
+    
+    public JTextField getTxtNomeEstacionamento(){
+        return txtNomeEstacionamento;
     }
 
     public JButton btnCadastrarEstacionamento(){
@@ -24,7 +36,7 @@ public class cadastrarEstacionamentoView extends javax.swing.JFrame {
     /**
      * Creates new form cadastrarEstacionamento
      */
-    public cadastrarEstacionamentoView() {
+    public CadastrarEstacionamentoView() {
         initComponents();
     }
 
@@ -41,8 +53,10 @@ public class cadastrarEstacionamentoView extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        numeroDeVagas = new javax.swing.JTextField();
+        txtNomeEstacionamento = new javax.swing.JTextField();
         btnCadastrarEstacionamento = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        txtQuantidadeVagas = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
@@ -57,12 +71,12 @@ public class cadastrarEstacionamentoView extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
 
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel4.setText("Quantas vagas serão cadastradas?");
+        jLabel4.setText("Nome do estacionamento:");
 
-        numeroDeVagas.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
-        numeroDeVagas.addActionListener(new java.awt.event.ActionListener() {
+        txtNomeEstacionamento.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        txtNomeEstacionamento.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                numeroDeVagasActionPerformed(evt);
+                txtNomeEstacionamentoActionPerformed(evt);
             }
         });
 
@@ -73,43 +87,61 @@ public class cadastrarEstacionamentoView extends javax.swing.JFrame {
             }
         });
 
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5.setText("Quantidade de vagas:");
+
+        txtQuantidadeVagas.setFont(new java.awt.Font("Arial", 3, 10)); // NOI18N
+        txtQuantidadeVagas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtQuantidadeVagasActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(85, 85, 85))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(numeroDeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCadastrarEstacionamento)))
-                        .addGap(147, 147, 147))))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel4)
+                                        .addGap(18, 18, 18))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(4, 4, 4)))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(txtQuantidadeVagas, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                                    .addComponent(txtNomeEstacionamento)))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(193, 193, 193)
+                        .addComponent(btnCadastrarEstacionamento)))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(210, 210, 210)
                 .addComponent(jLabel3)
-                .addGap(10, 10, 10)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel2)
-                .addGap(46, 46, 46)
-                .addComponent(jLabel4)
+                .addGap(53, 53, 53)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtNomeEstacionamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrarEstacionamento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(numeroDeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(290, 290, 290))
+                    .addComponent(jLabel5)
+                    .addComponent(txtQuantidadeVagas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addComponent(btnCadastrarEstacionamento)
+                .addContainerGap(232, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -170,13 +202,17 @@ public class cadastrarEstacionamentoView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCadastrarEstacionamentoActionPerformed
 
-    private void numeroDeVagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_numeroDeVagasActionPerformed
+    private void txtNomeEstacionamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeEstacionamentoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_numeroDeVagasActionPerformed
+    }//GEN-LAST:event_txtNomeEstacionamentoActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 this.dispose();         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void txtQuantidadeVagasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtQuantidadeVagasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtQuantidadeVagasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -195,13 +231,13 @@ this.dispose();         // TODO add your handling code here:
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(cadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(cadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(cadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(cadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CadastrarEstacionamentoView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -211,7 +247,7 @@ this.dispose();         // TODO add your handling code here:
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new cadastrarEstacionamentoView().setVisible(true);
+                new CadastrarEstacionamentoView().setVisible(true);
             }
         });
     }
@@ -223,8 +259,10 @@ this.dispose();         // TODO add your handling code here:
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField numeroDeVagas;
+    private javax.swing.JTextField txtNomeEstacionamento;
+    private javax.swing.JTextField txtQuantidadeVagas;
     // End of variables declaration//GEN-END:variables
 }

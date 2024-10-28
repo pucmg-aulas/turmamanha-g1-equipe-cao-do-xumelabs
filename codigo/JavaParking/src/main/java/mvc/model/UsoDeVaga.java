@@ -4,7 +4,8 @@
     */
     package mvc.model;
 
-    import java.time.Duration;
+    import java.io.Serializable;
+import java.time.Duration;
     import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;

@@ -4,6 +4,8 @@
  */
 package mvc.view;
 
+import mvc.controller.CadastrarEstacionamentoController;
+
 /**
  *
  * @author Pedro Henrique
@@ -155,8 +157,10 @@ new escolhaDeEstacionamento().setVisible(true);            // TODO add your hand
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-new cadastrarEstacionamentoView().setVisible(true);        // TODO add your handling code here:
+        // Instancia o controlador que abrirá a tela de cadastro de estacionamento
+        CadastrarEstacionamentoController controller = new CadastrarEstacionamentoController();
     }//GEN-LAST:event_jButton6ActionPerformed
+    
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         System.exit(0);        // TODO add your handling code here:

@@ -4,7 +4,6 @@ import javax.swing.JOptionPane;
 
 import mvc.dao.VeiculoDAO;
 import mvc.model.Veiculo;
-import mvc.view.cadastrarEstacionamentoView;
 import mvc.view.cadastrarVeiculoView;
 
 public class CadastrarVeiculoController {
