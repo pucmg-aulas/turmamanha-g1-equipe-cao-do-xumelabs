@@ -33,9 +33,9 @@ public class EstacionamentoDAO extends AbstractDAO<Estacionamento> implements Se
         return listarTodos();  
     }
 
-    public Estacionamento pesquisarPorNumero(int numero) {
+    public Estacionamento pesquisarPorNumero(String nome) {
         return listarTodos().stream()
-                .filter(estacionamento -> estacionamento.getNumeroEstacionamento() == numero)
+                .filter(estacionamento -> estacionamento.getNomeEstacionamento() == nome)
                 .findFirst()
                 .orElse(null);
     }

@@ -219,7 +219,7 @@ new cadastrarCliente().setVisible(true);        // TODO add your handling code h
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-new cadastrarVeiculo().setVisible(true);         // TODO add your handling code here:
+new cadastrarVeiculoView().setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed

@@ -8,12 +8,12 @@ package mvc.view;
  *
  * @author Pedro Henrique
  */
-public class telaPrincipal extends javax.swing.JFrame {
+public class telaPrincipalView extends javax.swing.JFrame {
 
     /**
      * Creates new form cadastrarEstacionamento
      */
-    public telaPrincipal() {
+    public telaPrincipalView() {
         initComponents();
     }
 
@@ -155,7 +155,7 @@ new escolhaDeEstacionamento().setVisible(true);            // TODO add your hand
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-new cadastrarEstacionamento().setVisible(true);        // TODO add your handling code here:
+new cadastrarEstacionamentoView().setVisible(true);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -179,13 +179,13 @@ new cadastrarEstacionamento().setVisible(true);        // TODO add your handling
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(telaPrincipal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telaPrincipalView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -193,7 +193,7 @@ new cadastrarEstacionamento().setVisible(true);        // TODO add your handling
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new telaPrincipal().setVisible(true);
+                new telaPrincipalView().setVisible(true);
             }
         });
     }

@@ -4,26 +4,20 @@
  */
 package mvc.model;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 public class Estacionamento {
 
     private List<Vaga> vagas;
-    private int numeroEstacionamento;
-    private static int proxNumeroEstacionameto = 1;
+    private String nome;
     private int numeroDeVagas;
     private List<UsoDeVaga> usoDeVagas;
     private List<Cliente> clientes;
 
 // Construtor para estacionamento 
-    public Estacionamento(int numeroDeVagas) {
-        this.numeroEstacionamento = proxNumeroEstacionameto;
-        proxNumeroEstacionameto++;
+    public Estacionamento(int numeroDeVagas, String nome) {
+        this.nome = nome;
         this.numeroDeVagas = numeroDeVagas;
         this.vagas = new ArrayList<>(numeroDeVagas);
         cadastrarVagas();
@@ -77,8 +71,8 @@ private void cadastrarVagas() {
         return this.vagas;
     }
 
-    public int getNumeroEstacionamento(){
-        return this.numeroEstacionamento;
+    public String getNomeEstacionamento(){
+        return this.nome;
     }
 
 }
