@@ -4,10 +4,12 @@
  */
 package mvc.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Estacionamento {
+public class Estacionamento implements Serializable {
+    private static final long serialVersionUID = 2L; // Adicionando serialVersionUID
 
     private List<Vaga> vagas;
     private String nome;
@@ -15,7 +17,7 @@ public class Estacionamento {
     private List<UsoDeVaga> usoDeVagas;
     private List<Cliente> clientes;
 
-// Construtor para estacionamento 
+    // Construtor para estacionamento 
     public Estacionamento(int numeroDeVagas, String nome) {
         this.nome = nome;
         this.numeroDeVagas = numeroDeVagas;
@@ -25,28 +27,28 @@ public class Estacionamento {
         this.clientes = new ArrayList<>();
     }
 
-private void cadastrarVagas() {
-    String numeroVaga;
-    int vagasPorTipo = this.numeroDeVagas / 4;  // Número de vagas para cada tipo
-    int contadorIdoso = 0, contadorPcd = 0, contadorVip = 0;
+    private void cadastrarVagas() {
+        String numeroVaga;
+        int vagasPorTipo = this.numeroDeVagas / 4;  // Número de vagas para cada tipo
+        int contadorIdoso = 0, contadorPcd = 0, contadorVip = 0;
 
-    for (int i = 0; i < this.numeroDeVagas; i++) {
-        numeroVaga = String.format("A%02d", i + 1);
+        for (int i = 0; i < this.numeroDeVagas; i++) {
+            numeroVaga = String.format("A%02d", i + 1);
 
-        if (contadorIdoso < vagasPorTipo) {
-            this.vagas.add(new VagaIdoso(numeroVaga));
-            contadorIdoso++;
-        } else if (contadorPcd < vagasPorTipo) {
-            this.vagas.add(new VagaPcd(numeroVaga));
-            contadorPcd++;
-        } else if (contadorVip < vagasPorTipo) {
-            this.vagas.add(new VagaVip(numeroVaga));
-            contadorVip++;
-        } else {
-            this.vagas.add(new VagaDefault(numeroVaga));
+            if (contadorIdoso < vagasPorTipo) {
+                this.vagas.add(new VagaIdoso(numeroVaga));
+                contadorIdoso++;
+            } else if (contadorPcd < vagasPorTipo) {
+                this.vagas.add(new VagaPcd(numeroVaga));
+                contadorPcd++;
+            } else if (contadorVip < vagasPorTipo) {
+                this.vagas.add(new VagaVip(numeroVaga));
+                contadorVip++;
+            } else {
+                this.vagas.add(new VagaDefault(numeroVaga));
+            }
         }
     }
-}
 
 
     public void estacionar(UsoDeVaga usoDeVaga) {
