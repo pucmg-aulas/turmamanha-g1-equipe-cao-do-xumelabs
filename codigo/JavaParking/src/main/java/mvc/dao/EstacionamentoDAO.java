@@ -1,8 +1,13 @@
 package mvc.dao;
 
 import mvc.model.Estacionamento;
+import mvc.model.UsoDeVaga;
+
 import java.io.Serializable;
+import java.time.YearMonth;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class EstacionamentoDAO extends AbstractDAO<Estacionamento> implements Serializable {
     private static EstacionamentoDAO instance;
@@ -37,8 +42,7 @@ public class EstacionamentoDAO extends AbstractDAO<Estacionamento> implements Se
 
     public Estacionamento pesquisarPorNumero(int numero) {
         return listarTodos().stream()
-                .filter(estacionamento -> estacionamento.getNumeroEstacionamento()
-                 == numero)
+                .filter(estacionamento -> estacionamento.getNumeroEstacionamento() == numero)
                 .findFirst()
                 .orElse(null);
     }

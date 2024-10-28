@@ -1,8 +1,13 @@
 package mvc.dao;
 
 import mvc.model.UsoDeVaga;
+
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.YearMonth;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable {
     private static UsoDeVagaDAO instance;
@@ -30,12 +35,34 @@ public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable
         return listarTodos();  // Chama o método da classe pai AbstractDAO
     }
 
-    // Método para pesquisar uso de vaga por veículo
-    public UsoDeVaga pesquisarUsoDeVagaPorVeiculo(String placa) {
+    // Método para calcular o valor total arrecadado do estacionamento
+    public double calcularValorTotalArrecadado() {
         return listarTodos().stream()
-                .filter(uso -> uso.getVeiculo().getPlaca().equals(placa))
-                .findFirst()
-                .orElse(null);
+                .mapToDouble(UsoDeVaga::calcularCobranca)
+                .sum();
+    }
+
+    // Método para calcular o valor arrecadado em determinado mês
+    public double calcularValorArrecadadoNoMes(YearMonth mes) {
+        return listarTodos().stream()
+                .filter(uso -> YearMonth.from(uso.getData()).equals(mes))
+                .mapToDouble(UsoDeVaga::calcularCobranca)
+                .sum();
+    }
+
+    // Método para calcular o valor médio de cada utilização do estacionamento
+    public double calcularValorMedioPorUso() {
+        return listarTodos().stream()
+                .mapToDouble(UsoDeVaga::calcularCobranca)
+                .average()
+                .orElse(0);
+    }
+
+    // Método para listar todos os usos de vaga em um determinado período
+    public List<UsoDeVaga> ListaDeUsoDeVagasPorData(LocalDate dataInicio, LocalDate dataFim) {
+        return listarTodos().stream()
+                .filter(uso -> !uso.getData().isBefore(dataInicio) && !uso.getData().isAfter(dataFim))
+                .collect(Collectors.toList());
     }
 
     // Método para atualizar um uso de vaga
