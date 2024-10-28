@@ -9,7 +9,7 @@
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 
-    public class UsoDeVaga {
+    public class UsoDeVaga implements Serializable {
 
         private Veiculo veiculo;
         private Vaga vaga;
