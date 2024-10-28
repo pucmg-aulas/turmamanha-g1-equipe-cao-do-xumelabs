@@ -55,12 +55,20 @@ public abstract class AbstractDAO<T> implements DAO<T> {
     @SuppressWarnings("unchecked")
     private void carregarObjetos() {
         File arquivo = new File(filePath);
+       
         if (arquivo.exists()) {
             try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(filePath))) {
                 listaObjetos = (List<T>) ois.readObject();
+                if (listaObjetos == null) {
+                    listaObjetos = new ArrayList<>();
+                }
             } catch (IOException | ClassNotFoundException e) {
                 System.err.println("Erro ao carregar objetos: " + e.getMessage());
             }
+        } else {
+            System.out.println("Arquivo não encontrado.");
+            listaObjetos = new ArrayList<>();
         }
     }
+    
 }
