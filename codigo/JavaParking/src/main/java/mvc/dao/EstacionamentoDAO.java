@@ -10,7 +10,7 @@ public class EstacionamentoDAO extends AbstractDAO<Estacionamento> implements Se
 
     // Construtor privado para implementação do Singleton
     private EstacionamentoDAO() {
-        super("./src/main/java/mvc/data/Estacionamento.dat");
+        super("./src/main/java/mvc/data/Estacionamentos.dat");
     }
 
     // Método Singleton para garantir uma única instância
