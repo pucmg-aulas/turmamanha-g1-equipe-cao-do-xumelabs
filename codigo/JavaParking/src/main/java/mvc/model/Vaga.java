@@ -4,7 +4,9 @@
  */
 package mvc.model;
 
-public abstract class Vaga {
+import java.io.Serializable;
+
+public abstract class Vaga implements Serializable {
 private String numeroVaga;
 private boolean disponivel;
 
