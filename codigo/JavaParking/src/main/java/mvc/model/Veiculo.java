@@ -4,7 +4,9 @@
  */
 package mvc.model;
 
-public class Veiculo {
+import java.io.Serializable;
+
+public class Veiculo implements Serializable {
 
     private String placa;
     private int IdCliente;
