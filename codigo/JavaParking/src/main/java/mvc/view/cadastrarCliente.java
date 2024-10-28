@@ -4,6 +4,10 @@
  */
 package mvc.view;
 
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Pedro Henrique
@@ -15,6 +19,18 @@ public class cadastrarCliente extends javax.swing.JFrame {
      */
     public cadastrarCliente() {
         initComponents();
+    }
+
+    public JButton btnCadastrarCliente(){
+        return btnCadastrarCliente;
+    }
+
+    public JCheckBox btnAnonimo(){
+        return btnAnonimo;
+    }
+
+    public JTextField getNome(){
+        return txtNome;
     }
 
     /**
@@ -30,10 +46,10 @@ public class cadastrarCliente extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        btnAnonimo = new javax.swing.JCheckBox();
+        btnCadastrarCliente = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
@@ -50,20 +66,20 @@ public class cadastrarCliente extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel4.setText("Nome:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                txtNomeActionPerformed(evt);
             }
         });
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setText("Cliente Anônimo?");
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setText("Cadastrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnCadastrarCliente.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        btnCadastrarCliente.setText("Cadastrar");
+        btnCadastrarCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnCadastrarClienteActionPerformed(evt);
             }
         });
 
@@ -78,14 +94,14 @@ public class cadastrarCliente extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1))
+                        .addComponent(txtNome))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(btnCadastrarCliente)
                             .addComponent(jLabel5))
                         .addGap(18, 18, 18)
-                        .addComponent(jCheckBox1)))
+                        .addComponent(btnAnonimo)))
                 .addGap(182, 182, 182))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(50, 50, 50)
@@ -104,12 +120,12 @@ public class cadastrarCliente extends javax.swing.JFrame {
                         .addGap(50, 50, 50)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(36, 36, 36)
-                        .addComponent(jCheckBox1))
+                        .addComponent(btnAnonimo))
                     .addComponent(jLabel5))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnCadastrarCliente)
                 .addContainerGap(218, Short.MAX_VALUE))
         );
 
@@ -169,13 +185,13 @@ public class cadastrarCliente extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnCadastrarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnCadastrarClienteActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_txtNomeActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 this.dispose();          // TODO add your handling code here:
@@ -224,9 +240,9 @@ this.dispose();          // TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCadastrarCliente;
     private javax.swing.JButton jButton9;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox btnAnonimo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -234,6 +250,6 @@ this.dispose();          // TODO add your handling code here:
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField txtNome;
     // End of variables declaration//GEN-END:variables
 }
