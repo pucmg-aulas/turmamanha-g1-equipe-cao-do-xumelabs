@@ -1,43 +1,58 @@
 package mvc.controller;
 
-import mvc.view.cadastrarEstacionamentoView;
+import mvc.view.CadastrarEstacionamentoView;
 
 import javax.swing.JOptionPane;
 
 import mvc.dao.EstacionamentoDAO;
 import mvc.model.Estacionamento;
 
-public class cadastrarEstacionamentoController {
-private EstacionamentoDAO estacionamentoDAO;
-private cadastrarEstacionamentoView view;
+public class CadastrarEstacionamentoController {
+    private EstacionamentoDAO estacionamentoDAO;
+    private CadastrarEstacionamentoView view;
 
-public  cadastrarEstacionamentoController(){
-    this.view = new cadastrarEstacionamentoView();
-    this.estacionamentoDAO = EstacionamentoDAO.getInstance();
+    public CadastrarEstacionamentoController() {
+        this.view = new CadastrarEstacionamentoView();
+        this.estacionamentoDAO = EstacionamentoDAO.getInstance();
 
-    this.view.btnCadastrarEstacionamento().addActionListener((e)->{
-        addEstacionamento();
-    });
-}
+        this.view.btnCadastrarEstacionamento().addActionListener((e) -> {
+            addEstacionamento();
+        });
 
-public void addEstacionamento(){
-    String nome = view.getTxtNomeEstacionamento().getText();
-    String numeroDeVagas = view.getTxtNumeroDeVagas().getText();
+        this.view.setVisible(true);
+    }
 
-    int numero = Integer.parseInt(numeroDeVagas);
+    public void addEstacionamento() {
+        String nome = view.getTxtNomeEstacionamento().getText();
+        String numeroDeVagas = view.getTxtNumeroDeVagas().getText();
+    
+        if (nome.isEmpty() || numeroDeVagas.isEmpty()) {
+            JOptionPane.showMessageDialog(view, "Todos os campos devem ser preenchidos!", "Erro", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+    
+        try {
+            int numero = Integer.parseInt(numeroDeVagas);
+    
+            Estacionamento e = new Estacionamento(numero, nome);
+            estacionamentoDAO.adicionarEstacionamento(e);
+    
+            JOptionPane.showMessageDialog(view, "Estacionamento salvo com sucesso!");
+            limparTela();
+    
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(view, "Número de vagas inválido. Insira um valor numérico.", "Erro", JOptionPane.ERROR_MESSAGE);
+        }
 
-    Estacionamento e = new Estacionamento(numero, nome);
-    estacionamentoDAO.adicionarEstacionamento(e);
+    }
+    
 
-    JOptionPane.showMessageDialog(view, "Estacionamento salvo com sucesso!");
-        
-    limparTela();
-}
-
-private void limparTela(){
-        
-    this.view.getTxtNumeroDeVagas().setText("");
-    this.view.getTxtNomeEstacionamento().setText("");
-}
-
+    private void limparTela() {
+        try {
+            this.view.getTxtNumeroDeVagas().setText("");
+            this.view.getTxtNomeEstacionamento().setText("");
+        } catch (Exception e) {
+            System.err.println("Erro ao limpar campos: " + e.getMessage());
+        }
+    }   
 }
