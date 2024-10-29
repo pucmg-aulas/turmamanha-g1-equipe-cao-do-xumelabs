@@ -4,6 +4,9 @@
  */
 package mvc.view;
 
+import mvc.controller.CadastrarClienteController;
+import mvc.controller.CadastrarVeiculoController;
+
 /**
  *
  * @author Pedro Henrique
@@ -215,15 +218,15 @@ public class opcaoEstacionamentoTela extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-new cadastrarCliente().setVisible(true);        // TODO add your handling code here:
+CadastrarClienteController controller = new CadastrarClienteController();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-new cadastrarVeiculoView().setVisible(true);         // TODO add your handling code here:
+CadastrarVeiculoController controller = new CadastrarVeiculoController();       // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-new estacionarCarro().setVisible(true);         // TODO add your handling code here:
+new EstacionarCarroView().setVisible(true);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed

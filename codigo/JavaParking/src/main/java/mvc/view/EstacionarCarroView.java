@@ -11,7 +11,7 @@ import javax.swing.JTextField;
  *
  * @author Pedro Henrique
  */
-public class estacionarCarro extends javax.swing.JFrame {
+public class EstacionarCarroView extends javax.swing.JFrame {
 
     public JTextField getTxtIdCliente(){
         return txtIdCliente;
@@ -32,7 +32,7 @@ public class estacionarCarro extends javax.swing.JFrame {
     /**
      * Creates new form cadastrarEstacionamento
      */
-    public estacionarCarro() {
+    public EstacionarCarroView() {
         initComponents();
     }
 
@@ -222,13 +222,13 @@ this.dispose();           // TODO add your handling code here:
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(estacionarCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EstacionarCarroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(estacionarCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EstacionarCarroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(estacionarCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EstacionarCarroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(estacionarCarro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EstacionarCarroView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -266,7 +266,7 @@ this.dispose();           // TODO add your handling code here:
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new estacionarCarro().setVisible(true);
+                new EstacionarCarroView().setVisible(true);
             }
         });
     }

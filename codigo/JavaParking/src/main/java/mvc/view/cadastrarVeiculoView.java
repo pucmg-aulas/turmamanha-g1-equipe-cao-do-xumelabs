@@ -13,7 +13,7 @@ import mvc.controller.CadastrarEstacionamentoController;
  *
  * @author Pedro Henrique
  */
-public class cadastrarVeiculoView extends javax.swing.JFrame {
+public class CadastrarVeiculoView extends javax.swing.JFrame {
 
     public JTextField getTxtIdCliente(){
         return txtIdCliente;
@@ -31,7 +31,7 @@ public class cadastrarVeiculoView extends javax.swing.JFrame {
     /**
      * Creates new form cadastrarEstacionamento
      */
-    public cadastrarVeiculoView() {
+    public CadastrarVeiculoView() {
         initComponents();
     }
 

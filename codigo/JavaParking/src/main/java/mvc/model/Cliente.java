@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Cliente implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String nome;
     private int identificador;
@@ -41,19 +42,18 @@ public class Cliente implements Serializable {
         return this.identificador;
     }
 
-    // Método para adicionar um novo carro ao cliente
-    public void cadastrarVeiculo(Veiculo veiculo, Estacionamento estacionamento) {
+    public void cadastrarVeiculo(Veiculo veiculo) {
         this.veiculos.add(veiculo);
     }
 
     public List<String> getPlacaDeVeiculos() {
-        List<String> placas = new ArrayList<>(); // Cria uma lista para armazenar as placas
+        List<String> placas = new ArrayList<>(); 
 
         for (Veiculo veiculo : veiculos) {
-            placas.add(veiculo.getPlaca()); // Adiciona cada placa à lista
+            placas.add(veiculo.getPlaca()); 
         }
 
-        return placas; // Retorna a lista de placas
+        return placas; 
     }
 
 

@@ -5,6 +5,7 @@
 package mvc.view;
 
 import mvc.controller.CadastrarEstacionamentoController;
+import mvc.controller.ListaDeEstacionamentosController;
 
 /**
  *
@@ -153,7 +154,8 @@ public class telaPrincipalView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-new escolhaDeEstacionamento().setVisible(true);            // TODO add your handling code here:
+ListaDeEstacionamentosController controller = new ListaDeEstacionamentosController();
+// TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

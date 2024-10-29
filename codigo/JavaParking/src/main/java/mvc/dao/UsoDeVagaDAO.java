@@ -13,7 +13,7 @@ public class UsoDeVagaDAO extends AbstractDAO<UsoDeVaga> implements Serializable
 
     // Construtor privado para implementação do Singleton
     private UsoDeVagaDAO() {
-        super("./src/main/java/mvc/data/UsoDeVagas.dat");
+        super("C:\\Users\\paulo\\Desktop\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\UsoDeVagas.dat");
     }
 
     // Método Singleton para garantir uma única instância

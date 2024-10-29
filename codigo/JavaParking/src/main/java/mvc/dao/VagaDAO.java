@@ -9,7 +9,7 @@ public class VagaDAO extends AbstractDAO<Vaga> implements Serializable {
 
     // Construtor privado para implementação do Singleton
     private VagaDAO() {
-        super("./src/main/java/mvc/data/Vagas.dat");
+        super("C:\\Users\\paulo\\Desktop\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Vagas.dat");
     }
 
     // Método Singleton para garantir uma única instância

@@ -10,7 +10,7 @@ public class VeiculoDAO extends AbstractDAO<Veiculo> implements Serializable {
 
     // Construtor privado para implementação do Singleton
     private VeiculoDAO() {
-        super("./src/main/java/mvc/data/Veiculos.dat");  // Define o caminho do arquivo .dat
+        super("C:\\Users\\paulo\\Desktop\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Veiculos.dat");  // Define o caminho do arquivo .dat
     }
 
     // Método Singleton para garantir uma única instância
@@ -32,13 +32,6 @@ public class VeiculoDAO extends AbstractDAO<Veiculo> implements Serializable {
     public Veiculo pesquisarVeiculoPorPlaca(String placa) {
         return listarTodos().stream()
                 .filter(veiculo -> veiculo.getPlaca().equals(placa))
-                .findFirst()
-                .orElse(null);
-    }
-
-    public Veiculo pesquisarPorId(int idCliente) {
-        return listarTodos().stream()
-                .filter(veiculo -> veiculo.getIdCliente() == idCliente)
                 .findFirst()
                 .orElse(null);
     }

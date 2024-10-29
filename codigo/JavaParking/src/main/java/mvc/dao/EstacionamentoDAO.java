@@ -1,16 +1,16 @@
 package mvc.dao;
 
+import mvc.model.Estacionamento;
+
 import java.io.Serializable;
 import java.util.List;
-
-import mvc.model.Estacionamento;
 
 public class EstacionamentoDAO extends AbstractDAO<Estacionamento> implements Serializable {
     private static EstacionamentoDAO instance;
 
     // Construtor privado para implementação do Singleton
     private EstacionamentoDAO() {
-        super("C:\\Users\\diogo\\OneDrive\\Área de Trabalho\\JavaParktwo\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Estacionamentos.dat");
+        super("C:\\Users\\paulo\\Desktop\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Estacionamentos.dat");
     }
 
     // Método Singleton para garantir uma única instância
