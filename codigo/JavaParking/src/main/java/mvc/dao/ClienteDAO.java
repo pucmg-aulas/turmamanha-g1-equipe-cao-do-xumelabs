@@ -12,7 +12,7 @@ public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
 
     // Construtor privado para implementação do Singleton
     private ClienteDAO() {
-        super("C:\\Users\\paulo\\Downloads\\JavaParkNovo(3)\\JavaParkNovo\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Clientes.dat");
+        super("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\JavaParkNovo\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Clientes.dat");
     }
 
     public static ClienteDAO getInstance() {
