@@ -27,25 +27,24 @@ public  CadastrarVeiculoController(){
 
 public void addVeiculo(){
     String placa = view.getTxtPlaca().getText();
-    String IdCliente = view.getTxtIdCliente().getText();
-    Cliente c = new Cliente();
+    String cpf = view.getTxtCpfCliente().getText();
 
-    int Id = Integer.parseInt(IdCliente);
+    Cliente clienteAntigo = this.clienteDAO.pesquisarPorCpf(cpf);
+    Veiculo v = new Veiculo(placa);
 
-    c = clienteDAO.pesquisarPorId(Id);
+    Cliente clienteNovo = clienteAntigo;
+    clienteNovo.cadastrarVeiculo(v);
 
-    Veiculo v = new Veiculo(placa, Id);
-
-    veiculoDAO.cadastrarVeiculo(v);
-    clienteDAO.cadastrarVeiculo(c, v);
+    this.veiculoDAO.cadastrar(v);
+    this.clienteDAO.atualizar(clienteAntigo, clienteNovo);;
 
     JOptionPane.showMessageDialog(view, "Carro salvo com sucesso!");
-        
+
     limparTela();
 }
 
 private void limparTela(){  
     this.view.getTxtPlaca().setText("");
-    this.view.getTxtIdCliente().setText("");
+    this.view.getTxtCpfCliente().setText("");
 }
 }

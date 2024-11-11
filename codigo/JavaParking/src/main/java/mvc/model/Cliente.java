@@ -8,6 +8,7 @@ public class Cliente implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String nome;
+    private String cpf;
     private int identificador;
     private static int proximoid;
     private List<Veiculo> veiculos;
@@ -17,18 +18,15 @@ public class Cliente implements Serializable {
     }
 
     // Construtor do cliente recebendo o nome
-    public Cliente(String nome) {
-        this();
+    public Cliente(String nome, String cpf) {
         this.nome = nome;
-    }
-
-    // Construtor caso o cliente deseje ser anônimo
-    public Cliente() {
-        this.nome = "Anonimo";
+        this.cpf = cpf;
         this.identificador = proximoid;
         proximoid++;
         this.veiculos = new ArrayList<>();
     }
+
+    // Construtor caso o cliente deseje ser anônimo, excluido!
 
     public void setIdentificador(int Id){
         this.identificador = Id;
@@ -36,6 +34,10 @@ public class Cliente implements Serializable {
 
     public String getNome() {
         return this.nome;
+    }
+
+    public String getCpf() {
+        return cpf;
     }
 
     public int getIdentificador() {
@@ -46,14 +48,8 @@ public class Cliente implements Serializable {
         this.veiculos.add(veiculo);
     }
 
-    public List<String> getPlacaDeVeiculos() {
-        List<String> placas = new ArrayList<>(); 
-
-        for (Veiculo veiculo : veiculos) {
-            placas.add(veiculo.getPlaca()); 
-        }
-
-        return placas; 
+    public List<Veiculo> getVeiculos() {
+        return this.veiculos; 
     }
 
 

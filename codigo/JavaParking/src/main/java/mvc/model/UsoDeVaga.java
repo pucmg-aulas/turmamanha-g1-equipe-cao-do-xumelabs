@@ -12,6 +12,8 @@ import java.time.LocalDate;
 
     public class UsoDeVaga implements Serializable {
 
+        private static final long serialVersionUID = 1L;
+
         private Veiculo veiculo;
         private Vaga vaga;
         private LocalDateTime horaChegada;
@@ -19,22 +21,24 @@ import java.time.LocalDate;
         private LocalDateTime horaSaida;
         private Duration tempoUsado;
         private double valorAPagar;
-        private static final int maxCobranca;
-        private static final int valorFracao;
-        private static final int tempoFracao;
+        private boolean status;
+        private static final int MAX_COBRANCA;
+        private static final int VALOR_FRACAO;
+        private static final int TEMPO_FRACAO;
 
         private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
         static {
-            maxCobranca = 50;
-            valorFracao = 4;
-            tempoFracao = 15;
+            MAX_COBRANCA = 50;
+            VALOR_FRACAO = 4;
+            TEMPO_FRACAO = 15;
         }
 
     // Construtor para criar o uso de vaga 
         public UsoDeVaga(Veiculo veiculo, Vaga vaga) {
             this.veiculo = veiculo;
             this.vaga = vaga;
+            this.horaSaida = null;
         }
 
         public boolean ocuparVaga() {
@@ -42,6 +46,7 @@ import java.time.LocalDate;
                 this.vaga.alterarDisponibilidade(true);
                 this.horaChegada = LocalDateTime.now();
                 this.data = LocalDate.now();
+                this.status = false;
                 return true;
             } else {
                 return false;
@@ -51,7 +56,8 @@ import java.time.LocalDate;
         public boolean desocuparVaga() {
             if (this.vaga.isOcupada()) {
                 this.vaga.alterarDisponibilidade(false);
-                this.horaSaida = LocalDateTime.now();
+                this.horaSaida = LocalDateTime.of(2024, 11, 11, 14, 57, 58);
+                this.status = true;
                 return true;
             } else {
                 return false;
@@ -70,30 +76,14 @@ import java.time.LocalDate;
         }
 
         public double calcularCobranca() {
-            valorAPagar = (this.calcularTempoUsado() / tempoFracao) * valorFracao;
+            valorAPagar = (this.calcularTempoUsado() / TEMPO_FRACAO) * VALOR_FRACAO;
             valorAPagar = valorAPagar * this.vaga.calcularAjuste();
 
-            if (valorAPagar >= maxCobranca) {
-                valorAPagar = maxCobranca;
+            if (valorAPagar >= MAX_COBRANCA) {
+                valorAPagar = MAX_COBRANCA;
             }
 
             return valorAPagar;
-        }
-
-        public void setHoraChegada(LocalDateTime horaChegada){
-            this.horaChegada = horaChegada;
-        }
-
-        public void setHoraSaida(LocalDateTime horaSaida){
-            this.horaSaida = horaSaida;
-        }
-
-        public void setData(LocalDate data){
-            this.data = data;
-        }
-
-        public void setValorAPagar(double valor){
-            this.valorAPagar= valor;
         }
 
         public Veiculo getVeiculo() {
@@ -104,15 +94,19 @@ import java.time.LocalDate;
             return this.vaga;
         }
 
-        public String getHoraChegada(){
-            return this.horaChegada.format(timeFormatter);
-        }
-        
-        public String getHoraSaida(){
-            return this.horaSaida.format(timeFormatter);
-        }
-
         public LocalDate getData(){
             return this.data;
+        }
+
+        public LocalDateTime getHoraEntrada(){
+            return this.horaChegada;
+        }
+
+        public LocalDateTime getHoraSaida(){
+            return this.horaSaida;
+        }
+
+        public boolean getStatus(){
+            return this.status;
         }
     }

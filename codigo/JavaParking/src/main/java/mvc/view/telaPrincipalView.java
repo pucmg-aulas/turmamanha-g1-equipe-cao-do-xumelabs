@@ -153,10 +153,16 @@ public class telaPrincipalView extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    public static ListaDeEstacionamentosController listadeEstacionamentoUsado;
+
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-ListaDeEstacionamentosController controller = new ListaDeEstacionamentosController();
-// TODO add your handling code here:
+            listadeEstacionamentoUsado = new ListaDeEstacionamentosController();
+        // Caso contrário, não faz nada, pois a instância já existe
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    public static ListaDeEstacionamentosController lista(){
+        return listadeEstacionamentoUsado;
+    }
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // Instancia o controlador que abrirá a tela de cadastro de estacionamento
@@ -169,7 +175,7 @@ ListaDeEstacionamentosController controller = new ListaDeEstacionamentosControll
     }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
-     * @param args the command line arguments
+     * @param args the command line arguments   
      */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

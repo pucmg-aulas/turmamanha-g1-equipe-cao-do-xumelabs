@@ -257,9 +257,9 @@ this.dispose();      // TODO add your handling code here:
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JList<String> listaDeEstacionamentos;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaDeEstacionamentos;
     // End of variables declaration//GEN-END:variables
 }

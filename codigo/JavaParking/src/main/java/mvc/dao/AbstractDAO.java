@@ -9,7 +9,6 @@ public abstract class AbstractDAO<T> implements DAO<T> {
     private List<T> listaObjetos;
     private String filePath;
 
-    // Construtor para definir o caminho do arquivo
     public AbstractDAO(String filePath) {
         this.filePath = filePath;
         this.listaObjetos = new ArrayList<>();

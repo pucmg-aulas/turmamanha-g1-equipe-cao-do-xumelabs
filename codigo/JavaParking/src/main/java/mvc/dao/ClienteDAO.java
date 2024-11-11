@@ -12,10 +12,9 @@ public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
 
     // Construtor privado para implementação do Singleton
     private ClienteDAO() {
-        super("C:\\Users\\paulo\\Desktop\\JavaPark\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Clientes.dat");
+        super("C:\\Users\\paulo\\Downloads\\JavaParkNovo(3)\\JavaParkNovo\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Clientes.dat");
     }
 
-    // Método Singleton para garantir uma única instância
     public static ClienteDAO getInstance() {
         if (instance == null) {
             instance = new ClienteDAO();
@@ -31,11 +30,6 @@ public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
         remover(cliente);  
     }
 
-    public void cadastrarVeiculo(Cliente cliente, Veiculo veiculo){
-        cliente.cadastrarVeiculo(veiculo);
-        salvarObjetos();
-    }
-
     public Cliente pesquisarClienteNome(String nome) {
         return listarTodos().stream()
                 .filter(cliente -> cliente.getNome().equals(nome))
@@ -43,12 +37,21 @@ public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
                 .orElse(null);
     }
 
-    public Cliente pesquisarPorId(int id) {
+    public Cliente pesquisarPorCpf(String cpf) {
         return listarTodos().stream()
-                .filter(cliente -> cliente.getIdentificador() == id)
+                .filter(cliente -> cliente.getCpf().equals(cpf))
+                .findFirst()
+                .orElse(null);
+    }    
+
+    public Cliente pesquisarPorPlaca(String placa) {
+        return listarTodos().stream()
+                .filter(cliente -> cliente.getVeiculos().stream()
+                        .anyMatch(veiculo -> veiculo.getPlaca().equalsIgnoreCase(placa)))
                 .findFirst()
                 .orElse(null);
     }
+    
 
     public List<Cliente> listaDeClientes() {
         return listarTodos();  

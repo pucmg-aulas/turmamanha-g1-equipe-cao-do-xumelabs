@@ -10,11 +10,10 @@ public class Veiculo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String placa;
-    private int IdCliente;
 
-    public Veiculo(String placa, int IdCliente) {
+    public Veiculo(String placa) {
         this.placa = placa;
-        this.IdCliente = IdCliente;
+        
     }
 
     public String getPlaca() {
@@ -24,9 +23,5 @@ public class Veiculo implements Serializable {
     public void setPlaca(String placa) {
         this.placa = placa;
     }
-
-    public int getIdCliente(){
-        return this.IdCliente;
-    }
-
+    
 }

@@ -33,7 +33,7 @@ public class Estacionamento implements Serializable {
         int contadorIdoso = 0, contadorPcd = 0, contadorVip = 0;
 
         for (int i = 0; i < this.numeroDeVagas; i++) {
-            numeroVaga = String.format("A%02d", i + 1);
+            numeroVaga = String.format("Y%02d", i + 1);
 
             if (contadorIdoso < vagasPorTipo) {
                 this.vagas.add(new VagaIdoso(numeroVaga));
@@ -50,10 +50,13 @@ public class Estacionamento implements Serializable {
         }
     }
 
-
-    public void estacionar(UsoDeVaga usoDeVaga) {
-        this.usoDeVagas.add(usoDeVaga);
+    public void estacionar(UsoDeVaga usoDeVaga){
         usoDeVaga.ocuparVaga();
+        this.usoDeVagas.add(usoDeVaga);
+    }
+    
+    public void addCiente(Cliente cliente){
+        clientes.add(cliente);
     }
 
     public double sairDaVaga(UsoDeVaga usoDeVaga) {

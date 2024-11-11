@@ -10,6 +10,7 @@ public class ListaDeEstacionamentosController {
     private EstacionamentoDAO estacionamentoDAO;
     private ListaDeEstacionamentosView view;
     private List<Estacionamento> estacionamentos;  // Lista de estacionamentos
+    private Estacionamento estacionamentoSelecionado;
 
     public ListaDeEstacionamentosController() {
         this.view = new ListaDeEstacionamentosView();
@@ -33,11 +34,15 @@ public class ListaDeEstacionamentosController {
         int selectedIndex = view.getListaDeEstacionamentos().getSelectedIndex(); // Obtém o índice selecionado na View
 
         if (selectedIndex >= 0 && selectedIndex < estacionamentos.size()) {
-            Estacionamento estacionamentoSelecionado = estacionamentos.get(selectedIndex); // Obtém o estacionamento pelo índice
+            estacionamentoSelecionado = estacionamentos.get(selectedIndex); // Obtém o estacionamento pelo índice
             // Aqui você pode continuar com a lógica para o estacionamento selecionado
             System.out.println("Estacionamento selecionado: " + estacionamentoSelecionado.getNomeEstacionamento());
         } else {
             System.out.println("Nenhum estacionamento foi selecionado.");
         }
+    }
+
+    public Estacionamento getEstacionamentoSelecionado(){
+        return estacionamentoSelecionado;
     }
 }
