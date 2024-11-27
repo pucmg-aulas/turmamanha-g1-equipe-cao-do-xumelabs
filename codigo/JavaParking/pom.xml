@@ -5,6 +5,7 @@
     <artifactId>JavaParking</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
+    
     <dependencies>
         <!-- Dependências do JUnit 5 para testes unitários -->
         <dependency>
@@ -32,6 +33,13 @@
             <artifactId>jcalendar</artifactId>
             <version>1.4</version>
         </dependency>
+
+        <!-- Dependência do MySQL Connector -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.33</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -56,4 +64,5 @@
         <maven.compiler.target>22</maven.compiler.target>
         <exec.mainClass>com.mycompany.javaparking.JavaParking</exec.mainClass>
     </properties>
+
 </project>
