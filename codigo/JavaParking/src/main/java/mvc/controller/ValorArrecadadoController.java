@@ -1,6 +1,8 @@
 package mvc.controller;
 
 import mvc.dao.EstacionamentoDAO;
+import mvc.dao.UsoDeVagaDAO;
+
 import java.time.YearMonth;
 
 import javax.swing.JLabel;
@@ -11,14 +13,14 @@ import mvc.view.*;
 
 public class ValorArrecadadoController {
     private ValorArrecadadoView view;
-    private EstacionamentoDAO estacionamentoDAO;
+    private UsoDeVagaDAO usoDeVagaDAO;
     private Estacionamento estacionamentoUsado;
     private ListaDeEstacionamentosController estacionamentoSelecionado;
 
     // Modificando o construtor para receber a lista existente
     public ValorArrecadadoController() {
         this.view = new ValorArrecadadoView();
-        this.estacionamentoDAO = EstacionamentoDAO.getInstance();
+        this.usoDeVagaDAO = UsoDeVagaDAO.getInstance();
         this.estacionamentoSelecionado = telaPrincipalView.lista();
         this.estacionamentoUsado = this.estacionamentoSelecionado.getEstacionamentoSelecionado();
 
@@ -31,7 +33,7 @@ public class ValorArrecadadoController {
     }
 
     public void filtrar(){
-        double valorTotal = estacionamentoDAO.calcularValorTotalArrecadado(estacionamentoUsado);
+        double valorTotal = usoDeVagaDAO.calcularValorTotalArrecadado(estacionamentoUsado);
 
         JLabel labelValorTotal = this.view.getValorTotal();
         labelValorTotal.setText(String.format("%.2f", valorTotal));
@@ -39,13 +41,11 @@ public class ValorArrecadadoController {
         int mes = this.view.getMesEscolhido().getMonth() + 1;
         int anoEscolhido = this.view.getAnoEscolhido().getYear();
 
-        YearMonth yearMonth = YearMonth.of(anoEscolhido, mes);
-
-        double valorMes = estacionamentoDAO.calcularValorArrecadadoNoMes(estacionamentoUsado, yearMonth);
+        double valorMes = usoDeVagaDAO.calcularValorTotalArrecadadoPorMes(estacionamentoUsado, anoEscolhido, mes);
         JLabel labelValorMes = this.view.getValorMes();
         labelValorMes.setText(String.format("%.2f", valorMes));
 
-        double valorMedio = estacionamentoDAO.calcularValorMedioPorUso(estacionamentoUsado);
+        double valorMedio = usoDeVagaDAO.calcularValorMedioPorUso(estacionamentoUsado);
         JLabel labelValorMedio = this.view.getValorMedio();
         labelValorMedio.setText(String.format("%.2f", valorMedio));
 

@@ -14,8 +14,6 @@ public class Estacionamento implements Serializable {
     private List<Vaga> vagas;
     private String nome;
     private int numeroDeVagas;
-    private List<UsoDeVaga> usoDeVagas;
-    private List<Cliente> clientes;
 
     // Construtor para estacionamento 
     public Estacionamento(int numeroDeVagas, String nome) {
@@ -23,8 +21,6 @@ public class Estacionamento implements Serializable {
         this.numeroDeVagas = numeroDeVagas;
         this.vagas = new ArrayList<>(numeroDeVagas);
         cadastrarVagas();
-        this.usoDeVagas = new ArrayList<>();
-        this.clientes = new ArrayList<>();
     }
 
     private void cadastrarVagas() {
@@ -50,26 +46,12 @@ public class Estacionamento implements Serializable {
         }
     }
 
-    public void estacionar(UsoDeVaga usoDeVaga){
-        usoDeVaga.ocuparVaga();
-        this.usoDeVagas.add(usoDeVaga);
-    }
-    
-    public void addCiente(Cliente cliente){
-        clientes.add(cliente);
+    public void setNumeroDeVagas(int numero){
+        this.numeroDeVagas = numero;
     }
 
-    public double sairDaVaga(UsoDeVaga usoDeVaga) {
-        usoDeVaga.desocuparVaga();
-        return usoDeVaga.calcularCobranca();
-    }
-
-    public List<UsoDeVaga> ListaDeUsoDeVagas() {
-        return this.usoDeVagas;
-    }
-
-    public List<Cliente> ListaDeClientes() {
-        return this.clientes;
+    public void setNomeEstacionamento(String nome){
+        this.nome = nome;
     }
 
     public List<Vaga> ListaDeVagas() {
@@ -78,6 +60,10 @@ public class Estacionamento implements Serializable {
 
     public String getNomeEstacionamento(){
         return this.nome;
+    }
+
+    public int getNumeroDeVagas(){
+        return this.numeroDeVagas;
     }
 
 }

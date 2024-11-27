@@ -5,13 +5,13 @@
 package mvc.view;
 
 import mvc.controller.CadastrarClienteController;
-import mvc.controller.CadastrarEstacionamentoController;
 import mvc.controller.CadastrarVeiculoController;
 import mvc.controller.DesocuparVagaController;
 import mvc.controller.EstacionarCarroController;
 import mvc.controller.HistoricoUsoClienteController;
-import mvc.controller.ListaDeEstacionamentosController;
 import mvc.controller.RankingClientesController;
+import mvc.controller.TaxaDeVagasOcupadasPorTipoController;
+import mvc.controller.VagasUsadasPorPeriodoDoDiaController;
 import mvc.controller.ValorArrecadadoController;
 
 /**
@@ -51,8 +51,9 @@ public class opcaoEstacionamentoTela extends javax.swing.JFrame {
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
+        jMenuItem4 = new javax.swing.JMenuItem();
+        jMenuItem5 = new javax.swing.JMenuItem();
 
-        setPreferredSize(new java.awt.Dimension(1024, 720));
         setResizable(false);
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
@@ -198,6 +199,22 @@ public class opcaoEstacionamentoTela extends javax.swing.JFrame {
         });
         jMenu1.add(jMenuItem3);
 
+        jMenuItem4.setText("Vagas usadas de acordo com o período do dia");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem4);
+
+        jMenuItem5.setText("Taxa de vagas ocupadas por tipo");
+        jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem5ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem5);
+
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
@@ -260,6 +277,16 @@ public class opcaoEstacionamentoTela extends javax.swing.JFrame {
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         RankingClientesController controller = new RankingClientesController();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        VagasUsadasPorPeriodoDoDiaController controller = new VagasUsadasPorPeriodoDoDiaController();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
+        TaxaDeVagasOcupadasPorTipoController controller = new TaxaDeVagasOcupadasPorTipoController();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem5ActionPerformed
     /**
      * @param args the command line arguments
      */
@@ -316,6 +343,8 @@ public class opcaoEstacionamentoTela extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
+    private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables

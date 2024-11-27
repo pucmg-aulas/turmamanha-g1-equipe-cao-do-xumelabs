@@ -1,18 +1,19 @@
 package mvc.dao;
 
-import mvc.model.Cliente;
-import mvc.model.Veiculo;
+import mvc.bancoDados.BancoDados;
+import mvc.model.*;
 
 import java.io.Serializable;
-import java.util.List;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
-public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
+public class ClienteDAO implements Serializable {
 
     private static ClienteDAO instance;
 
     // Construtor privado para implementação do Singleton
     private ClienteDAO() {
-        super("C:\\Users\\paulo\\OneDrive\\Área de Trabalho\\JavaParkNovo\\turmamanha-g1-equipe-cao-do-xumelabs\\codigo\\JavaParking\\src\\main\\java\\mvc\\data\\Clientes.dat");
     }
 
     public static ClienteDAO getInstance() {
@@ -22,42 +23,53 @@ public class ClienteDAO extends AbstractDAO<Cliente> implements Serializable {
         return instance;
     }
 
-    public void cadastrarCliente(Cliente cliente) {
-        cadastrar(cliente);  
+    public void cadastrarCliente(Cliente cliente, Estacionamento estacionamento) {
+        String sql = "INSERT INTO cliente (nome, cpf, nome_estacionamento) VALUES (?, ?, ?)";
+
+        PreparedStatement ps = null;
+
+        try {
+            ps = BancoDados.getConexao().prepareStatement(sql);
+            ps.setString(1, cliente.getNome());
+            ps.setString(2, cliente.getCpf());
+            ps.setString(3, estacionamento.getNomeEstacionamento());
+
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void removerCliente(Cliente cliente) {
-        remover(cliente);  
-    }
-
-    public Cliente pesquisarClienteNome(String nome) {
-        return listarTodos().stream()
-                .filter(cliente -> cliente.getNome().equals(nome))
-                .findFirst()
-                .orElse(null);
-    }
-
-    public Cliente pesquisarPorCpf(String cpf) {
-        return listarTodos().stream()
-                .filter(cliente -> cliente.getCpf().equals(cpf))
-                .findFirst()
-                .orElse(null);
+     public Cliente pesquisarPorCpf(String cpf, Estacionamento estacionamento) {
+        Cliente cliente = null;
+        String sql = "SELECT * FROM cliente WHERE cpf = ? AND nome_estacionamento = ?";
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+    
+        try {
+            ps = BancoDados.getConexao().prepareStatement(sql);
+            ps.setString(1, cpf);
+            ps.setString(2, estacionamento.getNomeEstacionamento());
+    
+            rs = ps.executeQuery();
+    
+            if (rs.next()) {
+                String nome = rs.getString("nome");
+                cliente = new Cliente(nome, cpf);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (ps != null) ps.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    
+        return cliente;
     }    
 
-    public Cliente pesquisarPorPlaca(String placa) {
-        return listarTodos().stream()
-                .filter(cliente -> cliente.getVeiculos().stream()
-                        .anyMatch(veiculo -> veiculo.getPlaca().equalsIgnoreCase(placa)))
-                .findFirst()
-                .orElse(null);
-    }
-    
-
-    public List<Cliente> listaDeClientes() {
-        return listarTodos();  
-    }
-
-    public void atualizarCliente(Cliente clienteAntigo, Cliente clienteNovo) {
-        atualizar(clienteAntigo, clienteNovo); 
-    }
 }

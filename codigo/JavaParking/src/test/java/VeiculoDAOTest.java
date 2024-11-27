@@ -1,51 +1,51 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import mvc.model.Veiculo;
+import org.junit.jupiter.api.*;
+
 import mvc.dao.VeiculoDAO;
+import mvc.model.*;
 
-public class VeiculoDAOTest {
+import static org.junit.jupiter.api.Assertions.*;
 
-    private VeiculoDAO veiculoDAO;
-    private Veiculo veiculo;
+class VeiculoDAOTest {
+
+    private VeiculoDAO dao;
 
     @BeforeEach
-    public void setUp() {
-        // Inicializa o VeiculoDAO
-        veiculoDAO = VeiculoDAO.getInstance();
-        
-        // Cria um novo veículo para os testes
-        veiculo = new Veiculo("ABC-1234");
+    void setup() {
+        dao = VeiculoDAO.getInstance();// Classe que contém os métodos a serem testados
     }
 
     @Test
-    public void testCadastrarVeiculo() {
-        // Cadastra o veículo
-        veiculoDAO.cadastrarVeiculo(veiculo);
-        
-        // Verifica se o veículo foi cadastrado corretamente
-        Veiculo veiculoBuscado = veiculoDAO.pesquisarVeiculoPorPlaca("ABC-1234");
-        
-        assertNotNull(veiculoBuscado, "Veículo não encontrado após o cadastro.");
-        assertEquals("ABC-1234", veiculoBuscado.getPlaca(), "A placa do veículo não corresponde.");
+    void testPesquisarVeiculoPorPlaca_Existe() {
+        String placa = "abc123";
+        Veiculo veiculo = dao.pesquisarVeiculoPorPlaca(placa);
+
+        assertNotNull(veiculo, "O veículo não deve ser nulo.");
+        assertEquals("abc123", veiculo.getPlaca(), "A placa do veículo deve ser abc123.");
     }
 
     @Test
-    public void testPesquisarVeiculoPorPlaca() {
-        // Cadastra o veículo
-        veiculoDAO.cadastrarVeiculo(veiculo);
-        
-        // Pesquisa o veículo pela placa
-        Veiculo veiculoBuscado = veiculoDAO.pesquisarVeiculoPorPlaca("ABC-1234");
-        
-        // Verifica se o veículo foi encontrado corretamente
-        assertNotNull(veiculoBuscado, "Veículo não encontrado.");
-        assertEquals("ABC-1234", veiculoBuscado.getPlaca(), "A placa do veículo não corresponde.");
-        
-        // Tenta buscar um veículo inexistente
-        Veiculo veiculoNaoExistente = veiculoDAO.pesquisarVeiculoPorPlaca("XYZ-0000");
-        
-        // Verifica se o veículo inexistente retorna null
-        assertNull(veiculoNaoExistente, "Veículo inexistente não deveria ser encontrado.");
+    void testPesquisarVeiculoPorPlaca_NaoExiste() {
+        String placa = "inexistente";
+        Veiculo veiculo = dao.pesquisarVeiculoPorPlaca(placa);
+
+        assertNull(veiculo, "O veículo deve ser nulo para placas inexistentes.");
+    }
+
+    @Test
+    void testPesquisarCliente_Existe() {
+        String cpf = "123";
+        Cliente cliente = dao.pesquisarCliente(cpf);
+
+        assertNotNull(cliente, "O cliente não deve ser nulo.");
+        assertEquals("123", cliente.getCpf(), "O CPF do cliente deve ser 123.");
+        assertEquals("123", cliente.getNome(), "O nome do cliente deve ser 123.");
+    }
+
+    @Test
+    void testPesquisarCliente_NaoExiste() {
+        String cpf = "inexistente";
+        Cliente cliente = dao.pesquisarCliente(cpf);
+
+        assertNull(cliente, "O cliente deve ser nulo para CPFs inexistentes.");
     }
 }

@@ -16,26 +16,21 @@ public class ListaDeEstacionamentosController {
         this.view = new ListaDeEstacionamentosView();
         this.estacionamentoDAO = EstacionamentoDAO.getInstance();
 
-        // Carrega a lista de estacionamentos do DAO
         this.estacionamentos = estacionamentoDAO.listaDeEstacionamentos();
-        this.view.setListaDeEstacionamentos(estacionamentos);  // Atualiza a view com os estacionamentos
+        this.view.setListaDeEstacionamentos(estacionamentos);  
 
-        // Adiciona listener no botão "Prosseguir"
         this.view.btnProsseguir().addActionListener((e) -> {
             selecionarEstacionamento();
         });
 
-        // Exibe a view
         this.view.setVisible(true);
     }
 
-    // Método para selecionar o estacionamento
     public void selecionarEstacionamento() {
-        int selectedIndex = view.getListaDeEstacionamentos().getSelectedIndex(); // Obtém o índice selecionado na View
+        int selectedIndex = view.getListaDeEstacionamentos().getSelectedIndex(); 
 
         if (selectedIndex >= 0 && selectedIndex < estacionamentos.size()) {
-            estacionamentoSelecionado = estacionamentos.get(selectedIndex); // Obtém o estacionamento pelo índice
-            // Aqui você pode continuar com a lógica para o estacionamento selecionado
+            estacionamentoSelecionado = estacionamentos.get(selectedIndex); 
             System.out.println("Estacionamento selecionado: " + estacionamentoSelecionado.getNomeEstacionamento());
         } else {
             System.out.println("Nenhum estacionamento foi selecionado.");

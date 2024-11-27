@@ -26,8 +26,6 @@ import java.time.LocalDate;
         private static final int VALOR_FRACAO;
         private static final int TEMPO_FRACAO;
 
-        private static final DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
-
         static {
             MAX_COBRANCA = 50;
             VALOR_FRACAO = 4;
@@ -39,6 +37,8 @@ import java.time.LocalDate;
             this.veiculo = veiculo;
             this.vaga = vaga;
             this.horaSaida = null;
+            this.status = false;
+            this.tempoUsado = null;
         }
 
         public boolean ocuparVaga() {
@@ -46,7 +46,6 @@ import java.time.LocalDate;
                 this.vaga.alterarDisponibilidade(true);
                 this.horaChegada = LocalDateTime.now();
                 this.data = LocalDate.now();
-                this.status = false;
                 return true;
             } else {
                 return false;
@@ -56,7 +55,7 @@ import java.time.LocalDate;
         public boolean desocuparVaga() {
             if (this.vaga.isOcupada()) {
                 this.vaga.alterarDisponibilidade(false);
-                this.horaSaida = LocalDateTime.of(2024, 11, 11, 14, 57, 58);
+                this.horaSaida = LocalDateTime.now();
                 this.status = true;
                 return true;
             } else {
@@ -65,7 +64,6 @@ import java.time.LocalDate;
         }
 
         public double calcularTempoUsado() {
-
             if (this.horaChegada.getHour() == this.horaSaida.getHour()) {
                 this.tempoUsado = Duration.ofMinutes(this.horaSaida.getMinute() - this.horaChegada.getMinute());
             } else {
@@ -106,7 +104,36 @@ import java.time.LocalDate;
             return this.horaSaida;
         }
 
+        public double getValorAPagar(){
+            return this.valorAPagar;
+        }
+
         public boolean getStatus(){
             return this.status;
         }
+
+        public void setHoraChegada(LocalDateTime horaChegada) {
+            this.horaChegada = horaChegada;
+        }
+
+        public void setData(LocalDate data) {
+            this.data = data;
+        }
+
+        public void setStatus(boolean status) {
+            this.status = status;
+        }
+
+        public void setHoraSaida(LocalDateTime horaSaida) {
+            this.horaSaida = horaSaida;
+        }
+
+        public void setTempoUsado(Duration tempoUsado) {
+            this.tempoUsado = tempoUsado;
+        }
+
+        public void setValorAPagar(double valorAPagar) {
+            this.valorAPagar = valorAPagar;
+        }
+
     }

@@ -1,45 +1,45 @@
-import static org.junit.jupiter.api.Assertions.*;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import mvc.model.Cliente;
 import mvc.dao.ClienteDAO;
+import mvc.model.Cliente;
+import mvc.model.Estacionamento;
+import org.junit.jupiter.api.*;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class ClienteDAOTest {
 
-    private ClienteDAO clienteDAO;
-    private Cliente cliente;
+    private static ClienteDAO clienteDAO;
 
-    @BeforeEach
-    public void setUp() {
+    @BeforeAll
+    static void setup() {
         // Inicializa o ClienteDAO
         clienteDAO = ClienteDAO.getInstance();
-        
-        // Cria um novo cliente
-        cliente = new Cliente("Carlos Silva", "123.456.789-00");
     }
 
     @Test
-    public void testCadastrarCliente() {
-        // Cadastra o cliente
-        clienteDAO.cadastrarCliente(cliente);
-        
-        // Verifica se o cliente foi cadastrado corretamente
-        Cliente clienteCadastrado = clienteDAO.pesquisarClienteNome("Carlos Silva");
-        assertNotNull(clienteCadastrado, "Cliente não foi cadastrado.");
-        assertEquals("Carlos Silva", clienteCadastrado.getNome(), "Nome do cliente não corresponde.");
+    void testPesquisarPorCpfExistente() {
+        // Arrange
+        Estacionamento estacionamento = new Estacionamento(30, "GuardaCarros");
+        String cpfExistente = "123";
+
+        // Act
+        Cliente cliente = clienteDAO.pesquisarPorCpf(cpfExistente, estacionamento);
+
+        // Assert
+        assertNotNull(cliente, "O cliente deveria ser encontrado.");
+        assertEquals("João Silva", cliente.getNome());
+        assertEquals("123", cliente.getCpf());
     }
 
     @Test
-    public void testPesquisarClienteNome() {
-        // Cria um novo cliente e o cadastra
-        Cliente cliente2 = new Cliente("Ana Costa", "987.654.321-00");
-        clienteDAO.cadastrarCliente(cliente2);
+    void testPesquisarPorCpfInexistente() {
+        // Arrange
+        Estacionamento estacionamento = new Estacionamento(25, "NorteMinas");
+        String cpfInexistente = "99999";
 
-        // Pesquisa o cliente pelo nome
-        Cliente clientePesquisado = clienteDAO.pesquisarClienteNome("Ana Costa");
-        
-        // Verifica se o cliente foi encontrado corretamente
-        assertNotNull(clientePesquisado, "Cliente não encontrado.");
-        assertEquals("Ana Costa", clientePesquisado.getNome(), "Nome do cliente não corresponde.");
+        // Act
+        Cliente cliente = clienteDAO.pesquisarPorCpf(cpfInexistente, estacionamento);
+
+        // Assert
+        assertNull(cliente, "Nenhum cliente deveria ser encontrado para o CPF inexistente.");
     }
 }

@@ -22,15 +22,6 @@ public class ListaDeEstacionamentosView extends javax.swing.JFrame {
         return listaDeEstacionamentos;
     }
 
-    public Estacionamento getEstacionamentoSelecionado(List<Estacionamento> estacionamentos) {
-        int selectedIndex = listaDeEstacionamentos.getSelectedIndex(); 
-        if (selectedIndex >= 0 && selectedIndex < estacionamentos.size()) {
-            return estacionamentos.get(selectedIndex); 
-        } else {
-            return null; 
-        }
-    }    
-
     public void setListaDeEstacionamentos(List<Estacionamento> estacionamentos) {
         DefaultListModel<String> model = new DefaultListModel<>();
         for (Estacionamento e : estacionamentos) {
