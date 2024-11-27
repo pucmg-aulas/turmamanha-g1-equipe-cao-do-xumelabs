@@ -19,3 +19,8 @@
 #06
 ![DiagramaParking (3)](https://github.com/user-attachments/assets/cda5e502-a3cd-4352-a714-b6ab754635fa)
 ----------------------------------------------------------------------------------------------
+#07 - Diagrama de Classe Final
+![WhatsApp Image 2024-11-27 at 11 00 19](https://github.com/user-attachments/assets/0b604023-7542-4116-a786-d86935e1d265)
+----------------------------------------------------------------------------------------------
+#08 - Diagrama Entidade-Relacionamento
+![WhatsApp Image 2024-11-27 at 10 58 27 (1)](https://github.com/user-attachments/assets/d8cf585a-f6c2-4b9d-9c5a-f02427ca5094)
