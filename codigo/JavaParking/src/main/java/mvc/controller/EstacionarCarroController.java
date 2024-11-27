@@ -82,24 +82,9 @@ public class EstacionarCarroController {
 
                 veiculo = this.veiculoDAO.pesquisarVeiculoPorPlaca(placa);
 
-                if (veiculo == null) {
-                    int resposta = JOptionPane.showConfirmDialog(null,
-                            "Veículo com a placa '" + placa
-                                    + "' não encontrado. Deseja cadastrar o veículo com o cliente como 'Anônimo'?",
-                            "Cadastro de Veículo",
-                            JOptionPane.YES_NO_OPTION);
-
-                    if (resposta == JOptionPane.YES_OPTION) {
-                        veiculo = new Veiculo(placa);
-                        this.veiculoDAO.cadastrarVeiculo(veiculo);
-                    } else {
-                        throw new CampoInvalidoException("Veículo não cadastrado.");
-                    }
-                }
-
                 String cpfAssociado = this.veiculoDAO.obterCpfPorVeiculo(placa);
 
-                if (cpfAssociado == null) {
+                if (cpfAssociado == null && veiculo != null) {
                     int resposta = JOptionPane.showConfirmDialog(null,
                             "Este veículo está cadastrado, mas não está associado a um cliente. Deseja se cadastrar como cliente?",
                             "Cadastro de Cliente",
@@ -135,6 +120,21 @@ public class EstacionarCarroController {
                                     "Erro", JOptionPane.ERROR_MESSAGE);
                             return;
                         }
+                    }
+                }
+
+                if (veiculo == null) {
+                    int resposta = JOptionPane.showConfirmDialog(null,
+                            "Veículo com a placa '" + placa
+                                    + "' não encontrado. Deseja cadastrar o veículo com o cliente como 'Anônimo'?",
+                            "Cadastro de Veículo",
+                            JOptionPane.YES_NO_OPTION);
+
+                    if (resposta == JOptionPane.YES_OPTION) {
+                        veiculo = new Veiculo(placa);
+                        this.veiculoDAO.cadastrarVeiculo(veiculo);
+                    } else {
+                        throw new CampoInvalidoException("Veículo não cadastrado.");
                     }
                 }
 
